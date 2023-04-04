@@ -1,0 +1,293 @@
+:root {
+  --font-roboto: "Roboto";
+  --font-poppins: "Poppins";
+  --color-linear: linear-gradient(#7d85ff 0%, #ff7b7b 100%);
+  --color-red: #ff8a8a;
+  --color-lightGray: #e2e2e2;
+  --color-gray: #bbbbbb;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-roboto);
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Nav Section*/
+
+nav {
+  display: flex;
+  justify-content: end;
+  gap: 1rem;
+  padding: 1em 1em;
+}
+
+nav div {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+nav div svg {
+  width: 1em;
+}
+
+nav div h1 {
+  font-size: 1rem;
+}
+
+/*Nav END*/
+
+/*Nav Tablet START*/
+
+@media (min-width: 1200px) {
+  nav {
+    gap: 4rem;
+  }
+
+  nav div {
+    padding: 1em;
+  }
+
+  nav div:nth-child(2) {
+    margin-right: 2rem;
+  }
+}
+
+/*Nav Tablet END*/
+
+/*Brand && categories START*/
+
+.brand {
+  display: flex;
+  justify-content: center;
+  font-weight: 900;
+}
+
+.brand h1 {
+  color: var(--color-red);
+  font-weight: 900;
+  margin: 1rem 0;
+}
+
+.nav-categories {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.nav-categories h3 {
+  font-size: 1rem;
+  font-weight: 300;
+  color: black;
+}
+/*Brand && categories END*/
+
+/*grid main START*/
+
+.background-grid {
+  background: var(--color-linear);
+  padding: 3em;
+  display: grid;
+
+  grid-template-rows: 1fr 1fr;
+}
+
+.background-text {
+  text-align: center;
+  font-size: 1em;
+  color: white;
+}
+
+.background-text p {
+  margin: 1rem;
+}
+
+.login-form {
+  text-align: center;
+  font-size: 0.5em;
+  font-family: var(--font-poppins);
+}
+
+.login-form input {
+  padding: 0.6em;
+  width: 50%;
+  border-radius: 3px;
+  border: none;
+  margin: 0.5rem;
+}
+
+.login-form ::placeholder {
+  font-size: 0.8rem;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  gap: 13px;
+}
+
+.button a {
+  margin-top: auto;
+}
+
+.login-form button {
+  padding: 1em 3em;
+  background-color: var(--color-red);
+  border: none;
+  border-radius: 4px;
+  font-size: 0.6rem;
+  margin-top: 1rem;
+}
+
+/*grid main END*/
+
+/*IPAD grid main START*/
+
+@media (min-width: 800px) {
+  .background-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    padding: 8em 0;
+  }
+
+  .background-text {
+    margin: auto;
+    text-align: left;
+    font-size: 1rem;
+  }
+
+  .background-text p {
+    margin: 1rem 0;
+    max-width: 17rem;
+  }
+
+  .login-form {
+    text-align: left;
+    margin: auto;
+  }
+
+  .login-form input {
+    width: 288px;
+    height: 2rem;
+    border-radius: 8px;
+    background: #fff;
+    border: 0.8px #707070;
+
+    margin: 0.5rem 0;
+  }
+
+  .login-form button {
+    width: 130px;
+    height: 36px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+  }
+
+  .button {
+    justify-content: left;
+  }
+
+  .button h4 {
+    font-family: Poppins;
+    font-weight: 500;
+    text-decoration: underline;
+    font-size: 12px;
+    text-align: left;
+    color: #624aff;
+  }
+}
+
+/*IPAD grid main END*/
+
+/*Loptop grid main START*/
+
+@media (min-width: 1200px) {
+  .password-container {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .password-container input {
+    width: 36%;
+  }
+}
+
+/*Loptop grid main END*/
+
+/*cards START*/
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 1rem;
+  font-size: 0.7rem;
+  flex: 20rem;
+  font-family: var(--font-poppins);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  background-color: var(--color-red);
+  max-width: 25rem;
+}
+
+.card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  color: white;
+  grid-row: span 2;
+
+  padding: 1rem 0.3rem;
+}
+.card-image {
+  grid-column-start: 2;
+  grid-row-start: 3;
+  grid-row-end: 1;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.second-card {
+  background-color: var(--color-lightGray);
+}
+
+.second-card div {
+  color: black;
+}
+
+.cards div:nth-child(3) {
+  background-color: var(--color-gray);
+}
+
+.cards div:nth-child(3) div {
+  color: black;
+}
+
+/*cards END*/
+
+/*TABLET cards START*/
+
+@media (min-width: 1000px) {
+  .cards {
+    flex-direction: row;
+    margin-top: 1rem;
+    justify-content: center;
+  }
+}
