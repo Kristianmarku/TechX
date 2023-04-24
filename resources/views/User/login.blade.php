@@ -26,7 +26,7 @@
                 </div>
             </form>
             <div class="card-footer">
-                <a href="register.html">Don't have an account? Register here</a>
+                <a href="">Don't have an account? Signup here</a>
             </div>
         </div>
     </div>
