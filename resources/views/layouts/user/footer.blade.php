@@ -14,6 +14,7 @@
   <script src="{{ asset('js/owl-carousel.js') }}"></script>
   <script src="{{ asset('js/counter.js') }}"></script>
   <script src="{{ asset('js/custom.js') }}"></script>
+  <script src="{{ asset('js/cart.js') }}"></script>
 
   </body>
 </html>

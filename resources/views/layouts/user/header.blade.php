@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owl.css') }}">
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/cart.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 
   </head>
@@ -41,7 +42,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <nav class="main-nav">
+                <nav class="main-nav add-cart">
                     <!-- ***** Logo Start ***** -->
                     <a href="{{ route('shop') }}" class="logo">
                         <img src="{{ asset('images/techxLogoWhite.svg') }}" alt="Logo" style="width: 50px;">
@@ -53,6 +54,7 @@
                       <li><a href="{{ route('shop') }}" class="{{ request()->is('shop') ? 'active' : '' }}" >Our Shop</a></li>
                       <li><a href="{{ route('product.details') }}" class="{{ request()->is('product*') ? 'active' : '' }}">Product Details</a></li>
                       <li><a href="{{ route('contact') }}" class="{{ request()->is('contact') ? 'active' : '' }}">Contact Us</a></li>
+                      <li><a  href="#" id="cart-icon-a"><i class="fa-solid fa-cart-shopping"></i></a></li>
                       <li><a href="{{ route('login') }}">Sign In</a></li>
                   </ul>   
                     <a class='menu-trigger'>
@@ -65,3 +67,201 @@
     </div>
   </header>
   <!-- ***** Header Area End ***** -->
+
+{{-- Cart --}}
+            <div class="cart-a active-a">
+              <div class="container-1-a">
+                <div class="cart-title-a">Shopping Cart</div>
+                <i id="close-cart-a" class="fa-solid fa-x"></i>
+              </div>
+
+                <!-- ***** ITEMS ***** -->
+
+              <div class="item-a">
+                <div class="image-a">
+                  <img src="{{ asset('images/trending-03.jpg') }}" alt="">
+                </div>
+                
+                <div class="text-a">
+                  <h4>Bicycle Gloves Blue -M</h4>
+                  <h4>1 x $30.00</h4>
+                </div>
+                <i class="fa-regular fa-circle-xmark"></i>
+              </div>
+
+
+              <div class="item-a">
+                <div class="image-a">
+                  <img src="{{ asset('images/trending-03.jpg') }}" alt="">
+                </div>
+                
+                <div class="text-a">
+                  <h4>Bicycle Gloves Blue -M</h4>
+                  <h4>1 x $30.00</h4>
+                </div>
+                <i class="fa-regular fa-circle-xmark"></i>
+              </div>
+
+              <div class="item-a">
+                <div class="image-a">
+                  <img src="{{ asset('images/trending-03.jpg') }}" alt="">
+                </div>
+                
+                <div class="text-a">
+                  <h4>Bicycle Gloves Blue -M</h4>
+                  <h4>1 x $30.00</h4>
+                </div>
+                <i class="fa-regular fa-circle-xmark"></i>
+              </div>
+
+              <div class="item-a">
+                <div class="image-a">
+                  <img src="{{ asset('images/trending-03.jpg') }}" alt="">
+                </div>
+                
+                <div class="text-a">
+                  <h4>Bicycle Gloves Blue -M</h4>
+                  <h4>1 x $30.00</h4>
+                </div>
+                <i class="fa-regular fa-circle-xmark"></i>
+              </div>
+
+              <div class="item-a">
+                <div class="image-a">
+                  <img src="{{ asset('images/trending-03.jpg') }}" alt="">
+                </div>
+                
+                <div class="text-a">
+                  <h4>Bicycle Gloves Blue -M</h4>
+                  <h4>1 x $30.00</h4>
+                </div>
+                <i class="fa-regular fa-circle-xmark"></i>
+              </div>
+
+              <div class="item-a">
+                <div class="image-a">
+                  <img src="{{ asset('images/trending-03.jpg') }}" alt="">
+                </div>
+                
+                <div class="text-a">
+                  <h4>Bicycle Gloves Blue -M</h4>
+                  <h4>1 x $30.00</h4>
+                </div>
+                <i class="fa-regular fa-circle-xmark"></i>
+              </div>
+
+              <div class="item-a">
+                <div class="image-a">
+                  <img src="{{ asset('images/trending-03.jpg') }}" alt="">
+                </div>
+                
+                <div class="text-a">
+                  <h4>Bicycle Gloves Blue -M</h4>
+                  <h4>1 x $30.00</h4>
+                </div>
+                <i class="fa-regular fa-circle-xmark"></i>
+              </div>
+
+              <div class="item-a">
+                <div class="image-a">
+                  <img src="{{ asset('images/trending-03.jpg') }}" alt="">
+                </div>
+                
+                <div class="text-a">
+                  <h4>Bicycle Gloves Blue -M</h4>
+                  <h4>1 x $30.00</h4>
+                </div>
+                <i class="fa-regular fa-circle-xmark"></i>
+              </div>
+              
+    
+              <div class="item-a">
+                <div class="image-a">
+                  <img src="{{ asset('images/trending-03.jpg') }}" alt="">
+                </div>
+                
+                <div class="text-a">
+                  <h4>Bicycle Gloves Blue -M</h4>
+                  <h4>1 x $30.00</h4>
+                </div>
+                <i class="fa-regular fa-circle-xmark"></i>
+              </div>
+
+              <div class="item-a">
+                <div class="image-a">
+                  <img src="{{ asset('images/trending-03.jpg') }}" alt="">
+                </div>
+                
+                <div class="text-a">
+                  <h4>Bicycle Gloves Blue -M</h4>
+                  <h4>1 x $30.00</h4>
+                </div>
+                <i class="fa-regular fa-circle-xmark"></i>
+              </div>
+
+              <div class="item-a">
+                <div class="image-a">
+                  <img src="{{ asset('images/trending-03.jpg') }}" alt="">
+                </div>
+                
+                <div class="text-a">
+                  <h4>Bicycle Gloves Blue -M</h4>
+                  <h4>1 x $30.00</h4>
+                </div>
+                <i class="fa-regular fa-circle-xmark"></i>
+              </div>
+              
+              <div class="item-a">
+                <div class="image-a">
+                  <img src="{{ asset('images/trending-03.jpg') }}" alt="">
+                </div>
+                
+                <div class="text-a">
+                  <h4>Bicycle Gloves Blue -M</h4>
+                  <h4>1 x $30.00</h4>
+                </div>
+                <i class="fa-regular fa-circle-xmark"></i>
+              </div>
+
+              
+              <div class="item-a">
+                <div class="image-a">
+                  <img src="{{ asset('images/trending-03.jpg') }}" alt="">
+                </div>
+                
+                <div class="text-a">
+                  <h4>Bicycle Gloves Blue -M</h4>
+                  <h4>1 x $30.00</h4>
+                </div>
+                <i class="fa-regular fa-circle-xmark"></i>
+              </div>
+
+              
+              <div class="item-a">
+                <div class="image-a">
+                  <img src="{{ asset('images/trending-03.jpg') }}" alt="">
+                </div>
+                
+                <div class="text-a">
+                  <h4>Bicycle Gloves Blue -M</h4>
+                  <h4>1 x $30.00</h4>
+                </div>
+                <i class="fa-regular fa-circle-xmark"></i>
+              </div>
+
+
+
+               <!-- ***** ITEMS END ***** -->
+
+              <div class="bottom-buttons-a">
+                <div class="subtotal-a">
+                  <h4>Subtotal</h4>
+                  <h4>$30.00</h4>
+                </div>
+                
+                <button type="submit">VIEW CART</button>
+                <button type="submit">CHECKOUT</button>
+              </div>
+
+
+            </div>
