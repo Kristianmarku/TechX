@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IssueController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ManagerController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SaleController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,18 +39,18 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/view-issue', [IssueController::class, 'viewIssuePage'])->name('view.issue'); 
 
     /* All */
-    Route::get('/profile', [ProfileController::class, 'profile'])->name('profile'); 
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile'); 
 
     /* Manager */
-    Route::get('/management', [App\Http\Controllers\HomeController::class, 'management'])->name('management'); // change to its own controller 
-    Route::get('/products', [App\Http\Controllers\HomeController::class, 'products'])->name('products'); // change to its own controller 
-    Route::get('/categories', [App\Http\Controllers\HomeController::class, 'categories'])->name('categories'); // change to its own controller 
-    Route::get('/sales', [App\Http\Controllers\HomeController::class, 'sales'])->name('sales'); // change to its own controller 
+    Route::get('/management', [ManagerController::class, 'index'])->name('management'); 
+    Route::get('/products', [ProductController::class, 'index'])->name('products'); 
+    Route::get('/categories', [CategoryController::class, 'index'])->name('categories'); 
+    Route::get('/sales', [SaleController::class, 'index'])->name('sales'); 
 
     /* Customers */
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'home'])->name('home'); // change to its own controller 
     Route::get('/shop', [App\Http\Controllers\HomeController::class, 'shop'])->name('shop'); // change to its own controller 
-    Route::get('/product/id', [App\Http\Controllers\HomeController::class, 'productDetails'])->name('product.details'); // change to its own controller 
+    Route::get('/product/id', [ProductController::class, 'productDetails'])->name('product.details');
     Route::get('/contact', [App\Http\Controllers\HomeController::class, 'contact'])->name('contact'); // change to its own controller 
 
 });
