@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\IssueController;
+use App\Http\Controllers\ProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,11 +31,11 @@ Route::middleware(['guest'])->group(function(){
 Route::middleware(['auth'])->group(function(){
     /* Admin */
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard'); // change to its own controller
-    Route::get('/issues', [App\Http\Controllers\HomeController::class, 'issuesPages'])->name('issues'); // change to its own controller 
-    Route::get('/view-issue', [App\Http\Controllers\HomeController::class, 'viewIssuePage'])->name('view.issue'); // change to its own controller 
+    Route::get('/issues', [IssueController::class, 'index'])->name('issues'); 
+    Route::get('/view-issue', [IssueController::class, 'viewIssuePage'])->name('view.issue'); 
 
     /* All */
-    Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile'); // change to its own controller
+    Route::get('/profile', [ProfileController::class, 'profile'])->name('profile'); 
 
     /* Manager */
     Route::get('/management', [App\Http\Controllers\HomeController::class, 'management'])->name('management'); // change to its own controller 

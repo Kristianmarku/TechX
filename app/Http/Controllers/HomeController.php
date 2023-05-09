@@ -27,16 +27,6 @@ class HomeController extends Controller
         return view('admin.dashboard');
     }
 
-    public function issuesPages() : Renderable {
-        return view('admin.issues');
-    }
-
-    public function viewIssuePage() : Renderable {
-        return view('admin.view-issue');
-    }
-    public function profile() : Renderable {
-        return view('profile');
-    }
     public function management() : Renderable {
         return view('manager.manager_dashboard');
     }
