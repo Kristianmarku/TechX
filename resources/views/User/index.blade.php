@@ -8,7 +8,7 @@
         <div class="col-lg-6 align-self-center">
           <div class="caption header-text">
             <h6>Welcome to TechX</h6>
-            <h2  class="test">POWER UP YOUR GAMING!</h2>
+            <h2>POWER UP YOUR GAMING!</h2>
             <p>Get the Edge You Need with Our Top-of-the-Line Gaming & Tech Products.</p>
             <div class="search-input">
               <form id="search" action="#">

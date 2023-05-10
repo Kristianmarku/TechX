@@ -22,14 +22,13 @@
     animation: cart-a 0.1s ease-in-out;
 }
 
-@keyframes cart-a{
-    0%{
+@keyframes cart-a {
+    0% {
         transform: translateX(100%);
     }
-    100%{
+    100% {
         transform: translateX(0%);
     }
-    
 }
 
 .cart-a i {

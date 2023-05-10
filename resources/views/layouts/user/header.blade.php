@@ -69,7 +69,7 @@
   <!-- ***** Header Area End ***** -->
 
 {{-- Cart --}}
-            <div class="cart-a">
+            <div class="cart-a active-a">
               <div class="container-1-a">
                 <div class="cart-title-a">Shopping Cart</div>
                 <i id="close-cart-a" class="fa-solid fa-x"></i>
