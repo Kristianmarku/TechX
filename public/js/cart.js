@@ -9,10 +9,15 @@ let open = false;
 cartIcon.onclick = () => {
     if (open === false) {
         cart.classList.add("active-a");
+
         open = true;
     } else {
-        cart.classList.remove("active-a");
-        open = false;
+        cart.classList.add("close-cart-a");
+        setTimeout(() => {
+            cart.classList.remove("active-a");
+            open = false;
+        }, 1000);
+
         console.log("OPENNN");
     }
 };
