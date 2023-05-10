@@ -156,12 +156,12 @@ body {
 }
 
 ::selection {
-    background: #0071f8;
+    background: #f96332;
     color: #fff;
 }
 
 ::-moz-selection {
-    background: #0071f8;
+    background: #f96332;
     color: #fff;
 }
 
@@ -183,11 +183,11 @@ body {
 
 .section-heading h2 em {
     font-style: normal;
-    color: #0071f8;
+    color: #f96332;
 }
 
 .section-heading h6 {
-    color: #ee626b;
+    color: #121212;
     font-size: 15px;
     text-transform: uppercase;
     font-weight: 700;
@@ -195,7 +195,7 @@ body {
 
 .main-button a {
     display: inline-block;
-    background-color: #ee626b;
+    background-color: #121212;
     text-transform: uppercase;
     color: #fff;
     font-size: 14px;
@@ -208,7 +208,7 @@ body {
 }
 
 .main-button a:hover {
-    background-color: #0071f8;
+    background-color: #f96332;
     color: #fff;
 }
 
@@ -285,7 +285,7 @@ Pre-loader Style
     height: 16px;
     top: 12px;
     left: 15px;
-    background: #0071f8;
+    background: #f96332;
     border-radius: 50%;
     -webkit-transform: translateX(0);
     transform: translateX(0);
@@ -308,7 +308,7 @@ Pre-loader Style
     width: 16px;
     height: 16px;
     margin-left: 16px;
-    background: #0071f8;
+    background: #f96332;
     border-radius: 50%;
 }
 
@@ -319,7 +319,7 @@ Header Style
 */
 
 .background-header {
-    background-color: #0071f8 !important;
+    background-color: #f96332 !important;
     border-radius: 0px 0px 25px 25px;
     height: 80px !important;
     position: fixed !important;
@@ -421,13 +421,13 @@ Header Style
 }
 
 .header-area .main-nav .nav li:last-child a {
-    background-color: #ee626b;
+    background-color: #121212;
     text-transform: uppercase;
     font-weight: 500;
 }
 
 .header-area .main-nav .nav li:last-child:hover a {
-    background-color: #ee626b;
+    background-color: #121212;
 }
 
 .header-area .main-nav .nav li:hover a {
@@ -618,7 +618,7 @@ Header Style
     }
     .header-area.header-sticky .nav li a:hover,
     .header-area.header-sticky .nav li a.active {
-        color: #ee626b !important;
+        color: #121212 !important;
         opacity: 1;
     }
     .header-area.header-sticky .nav li.search-icon a {
@@ -711,11 +711,13 @@ Banner Style
 .main-banner .caption h2:after {
     position: absolute;
     background-image: url(../images/caption-dec.png);
-    width: 202px;
-    height: 12px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 250px;
+    height: 15px;
     content: "";
     left: 125px;
-    bottom: 0;
+    bottom: -10px;
 }
 
 .main-banner .caption p {
@@ -745,7 +747,7 @@ Banner Style
     display: inline-block;
     height: 50px;
     line-height: 50px;
-    background-color: #ee626b;
+    background-color: #121212;
     color: #fff;
     font-size: 15px;
     text-transform: uppercase;
@@ -760,7 +762,7 @@ Banner Style
 }
 
 .main-banner .caption form button:hover {
-    background-color: #0071f8;
+    background-color: #f96332;
 }
 
 .main-banner .right-image {
@@ -776,7 +778,7 @@ Banner Style
     right: 20px;
     top: 20px;
     border-radius: 25px;
-    background-color: #008af8;
+    background-color: #121212;
     font-size: 22px;
     text-transform: uppercase;
     font-weight: 700;
@@ -789,7 +791,7 @@ Banner Style
     left: -25px;
     bottom: -25px;
     border-radius: 50%;
-    background-color: #ee626b;
+    background-color: #121212;
     font-size: 28px;
     text-transform: uppercase;
     font-weight: 700;
@@ -831,13 +833,13 @@ Services Style
     display: inline-block;
     text-align: center;
     line-height: 90px;
-    background-color: #0071f8;
+    background-color: #f96332;
     border-radius: 50%;
     transition: all 0.3s;
 }
 
 .features .item:hover .image {
-    background-color: #ee626b;
+    background-color: #121212;
 }
 
 /* 
@@ -879,7 +881,7 @@ Trending Style
     right: 20px;
     top: 20px;
     border-radius: 10px;
-    background-color: #008af8;
+    background-color: #121212;
     font-size: 17px;
     text-transform: uppercase;
     font-weight: 600;
@@ -911,7 +913,7 @@ Trending Style
     line-height: 40px;
     width: 40px;
     height: 40px;
-    background-color: #ee626b;
+    background-color: #121212;
     color: #fff;
     border-radius: 50%;
     right: 25px;
@@ -920,11 +922,11 @@ Trending Style
 }
 
 .trending .item:hover .down-content h4 {
-    color: #0071f8;
+    color: #f96332;
 }
 
 .trending .item:hover .down-content a {
-    background-color: #0071f8;
+    background-color: #f96332;
 }
 
 /* 
@@ -982,7 +984,7 @@ Most Played Style
     line-height: 40px;
     height: 40px;
     padding: 0px 15px;
-    background-color: #ee626b;
+    background-color: #121212;
     color: #fff;
     border-radius: 20px;
     font-size: 15px;
@@ -995,11 +997,11 @@ Most Played Style
 }
 
 .most-played .item:hover .down-content h4 {
-    color: #0071f8;
+    color: #f96332;
 }
 
 .most-played .item:hover .down-content a {
-    background-color: #0071f8;
+    background-color: #f96332;
 }
 
 /* 
@@ -1013,7 +1015,7 @@ Categories Style
 }
 
 .categories .item {
-    background-color: #0071f8;
+    background-color: #f96332;
     position: relative;
     border-radius: 25px;
     text-align: center;
@@ -1112,7 +1114,7 @@ CTA Style
     display: inline-block;
     height: 50px;
     line-height: 50px;
-    background-color: #ee626b;
+    background-color: #121212;
     color: #fff;
     font-size: 15px;
     text-transform: uppercase;
@@ -1127,7 +1129,7 @@ CTA Style
 }
 
 .cta .subscribe form button:hover {
-    background-color: #0071f8;
+    background-color: #f96332;
 }
 
 /* 
@@ -1138,7 +1140,7 @@ Footer Style
 
 footer {
     margin-top: 150px;
-    background-color: #0071f8;
+    background-color: #f96332;
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url(../images/footer-bg.jpg);
@@ -1231,7 +1233,7 @@ Shop Page Style
 }
 
 .trending ul.trending-filter li a.is_active {
-    background-color: #ee626b;
+    background-color: #121212;
     color: #fff;
 }
 
@@ -1240,7 +1242,7 @@ Shop Page Style
 }
 
 .trending ul.trending-filter li a:hover {
-    color: #ee626b;
+    color: #121212;
 }
 
 .trending-box .item {
@@ -1271,7 +1273,7 @@ Shop Page Style
     right: 20px;
     top: 20px;
     border-radius: 10px;
-    background-color: #008af8;
+    background-color: #121212;
     font-size: 17px;
     text-transform: uppercase;
     font-weight: 600;
@@ -1303,7 +1305,7 @@ Shop Page Style
     line-height: 40px;
     width: 40px;
     height: 40px;
-    background-color: #ee626b;
+    background-color: #121212;
     color: #fff;
     border-radius: 50%;
     right: 25px;
@@ -1312,11 +1314,11 @@ Shop Page Style
 }
 
 .trending-box .item:hover .down-content h4 {
-    color: #0071f8;
+    color: #f96332;
 }
 
 .trending-box .item:hover .down-content a {
-    background-color: #0071f8;
+    background-color: #f96332;
 }
 
 .trending ul.pagination {
@@ -1347,7 +1349,7 @@ Shop Page Style
 
 .trending ul.pagination li a:hover,
 .trending ul.pagination li a.is_active {
-    background-color: #0071f8;
+    background-color: #f96332;
     color: #fff;
 }
 
@@ -1380,7 +1382,7 @@ Single Page Style
 .single-product span.price {
     font-size: 27px;
     font-weight: 700;
-    color: #0071f8;
+    color: #f96332;
 }
 
 .single-product span.price em {
@@ -1416,7 +1418,7 @@ Single Page Style
     display: inline-block;
     height: 50px;
     line-height: 50px;
-    background-color: #ee626b;
+    background-color: #121212;
     color: #fff;
     font-size: 15px;
     text-transform: uppercase;
@@ -1432,7 +1434,7 @@ Single Page Style
 }
 
 .single-product form button:hover {
-    background-color: #0071f8;
+    background-color: #f96332;
 }
 
 .single-product ul {
@@ -1443,7 +1445,7 @@ Single Page Style
     display: block;
     margin: 20px 0px;
     font-size: 14px;
-    color: #0071f8;
+    color: #f96332;
 }
 
 .single-product ul li:last-child {
@@ -1490,7 +1492,7 @@ Single Page Style
 }
 
 .tabs-content .nav-tabs .nav-link.active {
-    color: #0071f8;
+    color: #f96332;
 }
 
 .tabs-content .tab-content {
@@ -1578,7 +1580,7 @@ Contact PAge Style
     display: inline-block;
     height: 50px;
     line-height: 50px;
-    background-color: #ee626b;
+    background-color: #121212;
     color: #fff;
     font-size: 15px;
     text-transform: uppercase;
@@ -1590,7 +1592,7 @@ Contact PAge Style
 }
 
 .contact-page .right-content form button:hover {
-    background-color: #0071f8;
+    background-color: #f96332;
 }
 
 /* 
