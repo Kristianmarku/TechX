@@ -54,7 +54,7 @@
                       <li><a href="{{ route('shop') }}" class="{{ request()->is('shop') ? 'active' : '' }}" >Our Shop</a></li>
                       <li><a href="{{ route('product.details') }}" class="{{ request()->is('product*') ? 'active' : '' }}">Product Details</a></li>
                       <li><a href="{{ route('contact') }}" class="{{ request()->is('contact') ? 'active' : '' }}">Contact Us</a></li>
-                      <li><a  href="#" id="cart-icon-a"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                      <li><a   id="cart-icon-a"><i class="fa-solid fa-cart-shopping"></i></a></li>
                       <li><a href="{{ route('login') }}">Sign In</a></li>
                   </ul>   
                     <a class='menu-trigger'>
@@ -69,7 +69,7 @@
   <!-- ***** Header Area End ***** -->
 
 {{-- Cart --}}
-            <div class="cart-a active-a">
+            <div class="cart-a">
               <div class="container-1-a">
                 <div class="cart-title-a">Shopping Cart</div>
                 <i id="close-cart-a" class="fa-solid fa-x"></i>
