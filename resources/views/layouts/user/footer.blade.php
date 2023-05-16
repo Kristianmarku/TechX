@@ -15,6 +15,7 @@
   <script src="{{ asset('js/counter.js') }}"></script>
   <script src="{{ asset('js/custom.js') }}"></script>
   <script src="{{ asset('js/cart.js') }}"></script>
+  <script src="{{ asset('js/dropdown.js') }}"></script>
 
   </body>
 </html>
