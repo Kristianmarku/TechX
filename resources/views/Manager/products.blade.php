@@ -280,3 +280,4 @@
         </div>
       </div>
 @endsection
+@include('manager.modals.issue-modal')

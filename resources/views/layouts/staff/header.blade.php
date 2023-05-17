@@ -71,7 +71,10 @@
               </a>
             </li>
             <li class="active-pro">
-              <a href="#">
+              <a
+                data-toggle="modal"
+                data-target="#issueModal"
+              >
                 <i class="now-ui-icons tech_headphones"></i>
                 <p>Contact Support</p>
               </a>

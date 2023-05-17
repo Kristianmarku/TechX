@@ -84,11 +84,7 @@
                           <td>Gaming</td>
                           <td>Tech gaming stuff</td>
                           <td>
-                            <button
-                              class="btn btn-warning"
-                              data-toggle="modal"
-                              data-target="#editCategoryModal"
-                            >
+                            <button class="btn btn-warning" data-toggle="modal" data-target="#editCategoryModal">
                               Edit
                             </button>
                             <button class="btn btn-danger">Delete</button>
@@ -175,3 +171,4 @@
         </div>
       </div>
 @endsection
+@include('manager.modals.issue-modal')
