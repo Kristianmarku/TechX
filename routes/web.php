@@ -37,7 +37,7 @@ Route::middleware(['auth'])->group(function(){
     /* Admin */
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard'); // change to its own controller
     Route::get('/issues', [IssueController::class, 'index'])->name('issues'); 
-    Route::get('/view-issue', [IssueController::class, 'viewIssuePage'])->name('view.issue'); 
+    Route::get('/issues/view/', [IssueController::class, 'viewIssuePage'])->name('view.issue'); 
 
     /* All */
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile'); 
