@@ -8,7 +8,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SaleController;
-use App\Http\Controllers\OrderController;
+use Symfony\Component\HttpKernel\Profiler\Profile;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,7 +38,7 @@ Route::middleware(['auth'])->group(function(){
     /* Admin */
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard'); // change to its own controller
     Route::get('/issues', [IssueController::class, 'index'])->name('issues'); 
-    Route::get('/issues/view/', [IssueController::class, 'viewIssuePage'])->name('view.issue'); 
+    Route::get('/view-issue', [IssueController::class, 'viewIssuePage'])->name('view.issue'); 
 
     /* All */
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile'); 
@@ -53,6 +54,6 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/shop', [App\Http\Controllers\HomeController::class, 'shop'])->name('shop'); // change to its own controller 
     Route::get('/product/id', [ProductController::class, 'productDetails'])->name('product.details');
     Route::get('/contact', [App\Http\Controllers\HomeController::class, 'contact'])->name('contact'); // change to its own controller 
-    Route::get('/my-orders', [OrderController::class, 'index'])->name('myorders'); 
+    Route::get('/c/profile', [ProfileController::class, 'customerIndex'])->name('customer.profile'); 
 
 });
