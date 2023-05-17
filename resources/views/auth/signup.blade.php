@@ -45,11 +45,11 @@
                         <input name="password_confirmation" type="password" placeholder="Confirm Password" autocomplete="new-password">
                     </div>
                     <button type="submit">Signup</button>
+                    <div class="card-footer">
+                        <a href="{{ route('loginPage') }}">Already have an account? Login here</a>
+                    </div>
                 </div>
             </form>
-            <div class="card-footer">
-                <a href="{{ route('loginPage') }}">Already have an account? Login here</a>
-            </div>
         </div>
     </div>
 </body>
