@@ -60,9 +60,15 @@
                       <li class="dropdown">
                         <a href="#"><i class="fa-solid fa-user"></i></a>
                         <div class="dropdown-content">
-                          <a href="#">Profile</a>
-                          <a href="#">Settings</a>
-                          <a href="#">Logout</a>
+                          <a href="{{ route('customer.profile') }}">Profile</a>
+                          <a href="{{ route('myorders') }}">My Orders</a>
+                          <a href="{{ route('logout') }}"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Logout
+                          </a>
+                          <form id="logout-form" action="{{ route('logout') }}" method="POST" type="hidden">
+                            @csrf
+                          </form>
                         </div>
                       </li>
                       

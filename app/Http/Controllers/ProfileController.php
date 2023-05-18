@@ -17,6 +17,11 @@ class ProfileController extends Controller
         return view('profile');
     }
 
+    public function customerIndex() : Renderable
+    {
+        return view('user.u-profile');
+    } 
+
     /**
      * Show the form for creating a new resource.
      *

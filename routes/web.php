@@ -54,5 +54,5 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/product/id', [ProductController::class, 'productDetails'])->name('product.details');
     Route::get('/contact', [App\Http\Controllers\HomeController::class, 'contact'])->name('contact'); // change to its own controller 
     Route::get('/my-orders', [OrderController::class, 'index'])->name('myorders'); 
-
+    Route::get('/c/profile', [ProfileController::class, 'customerIndex'])->name('customer.profile');
 });
