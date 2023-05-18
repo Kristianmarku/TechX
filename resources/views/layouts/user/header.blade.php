@@ -102,184 +102,21 @@
                 </div>
                 
                 <div class="text-a">
-                  <h4>Bicycle Gloves Blue -M</h4>
-                  <h4>1 x $30.00</h4>
+                  <h4>PUBG</h4>
+                  <h4>1x 49.99$</h4>
                 </div>
                 <i class="fa-regular fa-circle-xmark"></i>
               </div>
-
-
-              <div class="item-a">
-                <div class="image-a">
-                  <img src="{{ asset('images/trending-03.jpg') }}" alt="">
-                </div>
-                
-                <div class="text-a">
-                  <h4>Bicycle Gloves Blue -M</h4>
-                  <h4>1 x $30.00</h4>
-                </div>
-                <i class="fa-regular fa-circle-xmark"></i>
-              </div>
-
-              <div class="item-a">
-                <div class="image-a">
-                  <img src="{{ asset('images/trending-03.jpg') }}" alt="">
-                </div>
-                
-                <div class="text-a">
-                  <h4>Bicycle Gloves Blue -M</h4>
-                  <h4>1 x $30.00</h4>
-                </div>
-                <i class="fa-regular fa-circle-xmark"></i>
-              </div>
-
-              <div class="item-a">
-                <div class="image-a">
-                  <img src="{{ asset('images/trending-03.jpg') }}" alt="">
-                </div>
-                
-                <div class="text-a">
-                  <h4>Bicycle Gloves Blue -M</h4>
-                  <h4>1 x $30.00</h4>
-                </div>
-                <i class="fa-regular fa-circle-xmark"></i>
-              </div>
-
-              <div class="item-a">
-                <div class="image-a">
-                  <img src="{{ asset('images/trending-03.jpg') }}" alt="">
-                </div>
-                
-                <div class="text-a">
-                  <h4>Bicycle Gloves Blue -M</h4>
-                  <h4>1 x $30.00</h4>
-                </div>
-                <i class="fa-regular fa-circle-xmark"></i>
-              </div>
-
-              <div class="item-a">
-                <div class="image-a">
-                  <img src="{{ asset('images/trending-03.jpg') }}" alt="">
-                </div>
-                
-                <div class="text-a">
-                  <h4>Bicycle Gloves Blue -M</h4>
-                  <h4>1 x $30.00</h4>
-                </div>
-                <i class="fa-regular fa-circle-xmark"></i>
-              </div>
-
-              <div class="item-a">
-                <div class="image-a">
-                  <img src="{{ asset('images/trending-03.jpg') }}" alt="">
-                </div>
-                
-                <div class="text-a">
-                  <h4>Bicycle Gloves Blue -M</h4>
-                  <h4>1 x $30.00</h4>
-                </div>
-                <i class="fa-regular fa-circle-xmark"></i>
-              </div>
-
-              <div class="item-a">
-                <div class="image-a">
-                  <img src="{{ asset('images/trending-03.jpg') }}" alt="">
-                </div>
-                
-                <div class="text-a">
-                  <h4>Bicycle Gloves Blue -M</h4>
-                  <h4>1 x $30.00</h4>
-                </div>
-                <i class="fa-regular fa-circle-xmark"></i>
-              </div>
-              
-    
-              <div class="item-a">
-                <div class="image-a">
-                  <img src="{{ asset('images/trending-03.jpg') }}" alt="">
-                </div>
-                
-                <div class="text-a">
-                  <h4>Bicycle Gloves Blue -M</h4>
-                  <h4>1 x $30.00</h4>
-                </div>
-                <i class="fa-regular fa-circle-xmark"></i>
-              </div>
-
-              <div class="item-a">
-                <div class="image-a">
-                  <img src="{{ asset('images/trending-03.jpg') }}" alt="">
-                </div>
-                
-                <div class="text-a">
-                  <h4>Bicycle Gloves Blue -M</h4>
-                  <h4>1 x $30.00</h4>
-                </div>
-                <i class="fa-regular fa-circle-xmark"></i>
-              </div>
-
-              <div class="item-a">
-                <div class="image-a">
-                  <img src="{{ asset('images/trending-03.jpg') }}" alt="">
-                </div>
-                
-                <div class="text-a">
-                  <h4>Bicycle Gloves Blue -M</h4>
-                  <h4>1 x $30.00</h4>
-                </div>
-                <i class="fa-regular fa-circle-xmark"></i>
-              </div>
-              
-              <div class="item-a">
-                <div class="image-a">
-                  <img src="{{ asset('images/trending-03.jpg') }}" alt="">
-                </div>
-                
-                <div class="text-a">
-                  <h4>Bicycle Gloves Blue -M</h4>
-                  <h4>1 x $30.00</h4>
-                </div>
-                <i class="fa-regular fa-circle-xmark"></i>
-              </div>
-
-              
-              <div class="item-a">
-                <div class="image-a">
-                  <img src="{{ asset('images/trending-03.jpg') }}" alt="">
-                </div>
-                
-                <div class="text-a">
-                  <h4>Bicycle Gloves Blue -M</h4>
-                  <h4>1 x $30.00</h4>
-                </div>
-                <i class="fa-regular fa-circle-xmark"></i>
-              </div>
-
-              
-              <div class="item-a">
-                <div class="image-a">
-                  <img src="{{ asset('images/trending-03.jpg') }}" alt="">
-                </div>
-                
-                <div class="text-a">
-                  <h4>Bicycle Gloves Blue -M</h4>
-                  <h4>1 x $30.00</h4>
-                </div>
-                <i class="fa-regular fa-circle-xmark"></i>
-              </div>
-
-
 
                <!-- ***** ITEMS END ***** -->
 
               <div class="bottom-buttons-a">
                 <div class="subtotal-a">
-                  <h4>Subtotal</h4>
-                  <h4>$30.00</h4>
+                  <h4>Total</h4>
+                  <h4>$49.99</h4>
                 </div>
                 
                 <button type="submit">VIEW CART</button>
                 <button type="submit">CHECKOUT</button>
               </div>
-      
 </div>
