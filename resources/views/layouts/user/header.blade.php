@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{ asset('css/owl.css') }}">
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
     <link rel="stylesheet" href="{{ asset('css/cart.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/dropdown.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 
   </head>
@@ -54,7 +55,18 @@
                       <li><a href="{{ route('shop') }}" class="{{ request()->is('shop') ? 'active' : '' }}" >Our Shop</a></li>
                       <li><a href="{{ route('product.details') }}" class="{{ request()->is('product*') ? 'active' : '' }}">Product Details</a></li>
                       <li><a href="{{ route('contact') }}" class="{{ request()->is('contact') ? 'active' : '' }}">Contact Us</a></li>
-                      <li><a href="{{ route('customer.profile') }}" class="{{ request()->is('profile') ? 'active' : '' }}">Profile</a></li>
+      
+                        
+                      <li class="dropdown">
+                        <a href="#"><i class="fa-solid fa-user"></i></a>
+                        <div class="dropdown-content">
+                          <a href="#">Profile</a>
+                          <a href="#">Settings</a>
+                          <a href="#">Logout</a>
+                        </div>
+                      </li>
+                      
+   
                       <li><a   id="cart-icon-a"><i class="fa-solid fa-cart-shopping"></i></a></li>
                       <li><a href="{{ route('login') }}">Sign In</a></li>
                   </ul>   
@@ -263,6 +275,5 @@
                 <button type="submit">VIEW CART</button>
                 <button type="submit">CHECKOUT</button>
               </div>
-
-
-            </div>
+      
+</div>
