@@ -16,6 +16,8 @@
   <script src="{{ asset('js/custom.js') }}"></script>
   <script src="{{ asset('js/cart.js') }}"></script>
   <script src="{{ asset('js/dropdown.js') }}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
 
   </body>
 </html>

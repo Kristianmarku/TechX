@@ -1,35 +1,28 @@
-//  Cart
-let cartIcon = document.querySelector("#cart-icon-a");
-let cart = document.querySelector(".cart-a");
-let closeCart = document.querySelector("#close-cart-a");
+const cartIcon = document.getElementById("cart-icon-a");
+const cartSection = document.querySelector(".cart-a");
 
-// Open Cart
-let open = false;
+cartIcon.addEventListener("click", () => {
+    anime({
+        targets: cartSection,
+        translateX: ["100%", "0%"],
+        duration: 500,
+        easing: "easeInOutQuad",
+        begin: () => {
+            cartSection.style.display = "block";
+        },
+    });
+});
 
-cartIcon.onclick = () => {
-    if (open === false) {
-        cart.classList.add("active-a");
+const closeButton = document.getElementById("close-cart-a");
 
-        open = true;
-    } else {
-        cart.classList.add("close-cart-a");
-        setTimeout(() => {
-            cart.classList.remove("active-a");
-            open = false;
-        }, 1000);
-
-        console.log("OPENNN");
-    }
-};
-// Close Cart
-closeCart.onclick = () => {
-    cart.classList.remove("active-a");
-    open = false;
-};
-
-// Cart Working JS
-if (document.readyState == "loading") {
-    document.addEventListener("DOMContentLoaded", ready);
-} else {
-    ready();
-}
+closeButton.addEventListener("click", () => {
+    anime({
+        targets: cartSection,
+        translateX: ["0%", "100%"],
+        duration: 500,
+        easing: "easeInOutQuad",
+        complete: () => {
+            cartSection.style.display = "none";
+        },
+    });
+});
