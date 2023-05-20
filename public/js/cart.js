@@ -5,7 +5,7 @@ cartIcon.addEventListener("click", () => {
     anime({
         targets: cartSection,
         translateX: ["100%", "0%"],
-        duration: 500,
+        duration: 300,
         easing: "easeInOutQuad",
         begin: () => {
             cartSection.style.display = "block";
@@ -19,7 +19,7 @@ closeButton.addEventListener("click", () => {
     anime({
         targets: cartSection,
         translateX: ["0%", "100%"],
-        duration: 500,
+        duration: 300,
         easing: "easeInOutQuad",
         complete: () => {
             cartSection.style.display = "none";
