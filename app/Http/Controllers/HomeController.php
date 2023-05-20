@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -22,9 +23,14 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index() : Renderable
     {
-        return view('admin.dashboard');
+        if(Auth::user()->role_id == 1){
+            return view('admin.dashboard');
+        }elseif(Auth::user()->role_id == 2){
+            return view('manager.manager_dashboard');
+        }
+        return view('user.index');
     }
 
     public function management() : Renderable {

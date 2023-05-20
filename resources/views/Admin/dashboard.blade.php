@@ -8,12 +8,10 @@
               <a href="{{route('issues')}}">
                 <div class="card">
                   <div class="card-header text-center">
-                    <h3 class="title">All Active Issues</h3>
+                    <h3 class="title">Active Issues</h3>
                   </div>
                   <div class="card-body">
-                    <div
-                      class="d-flex justify-content-center align-items-center"
-                    >
+                    <div class="d-flex justify-content-center align-items-center">
                       <h1>14</h1>
                     </div>
                   </div>
@@ -28,9 +26,7 @@
                     <h3 class="title">Today's Issues</h3>
                   </div>
                   <div class="card-body">
-                    <div
-                      class="d-flex justify-content-center align-items-center"
-                    >
+                    <div class="d-flex justify-content-center align-items-center">
                       <h1>3</h1>
                     </div>
                   </div>
@@ -42,12 +38,10 @@
               <a href="{{route('issues')}}">
                 <div class="card">
                   <div class="card-header text-center">
-                    <h3 class="title">All Customers</h3>
+                    <h3 class="title">Clients</h3>
                   </div>
                   <div class="card-body">
-                    <div
-                      class="d-flex justify-content-center align-items-center"
-                    >
+                    <div class="d-flex justify-content-center align-items-center">
                       <h1>14</h1>
                     </div>
                   </div>
@@ -59,12 +53,10 @@
               <a href="{{route('issues')}}">
                 <div class="card">
                   <div class="card-header text-center">
-                    <h3 class="title">All Managers</h3>
+                    <h3 class="title">Managers</h3>
                   </div>
                   <div class="card-body">
-                    <div
-                      class="d-flex justify-content-center align-items-center"
-                    >
+                    <div class="d-flex justify-content-center align-items-center">
                       <h1>14</h1>
                     </div>
                   </div>

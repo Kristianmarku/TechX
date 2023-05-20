@@ -28,20 +28,23 @@
         </div>
         <div class="sidebar-wrapper" id="sidebar-wrapper">
           <ul class="nav">
-            <li class="{{ request()->is('dashboard') ? 'active' : '' }}">
-              <a href="{{ route('dashboard') }}">
+            <li class="{{ request()->is('home') ? 'active' : '' }}">
+              <a href="{{ route('home') }}">
                 <i class="now-ui-icons design_app"></i>
                 <p>Dashboard</p>
               </a>
             </li>
 
-            <li class="{{ request()->is('management') ? 'active' : '' }}">
-              <a href="{{route('management')}}">
-                <i class="now-ui-icons design_app"></i>
-                <p>Manager</p>
-              </a>
-            </li>
+            @if(Auth::user()->hasRole('Admin'))
+              <li class="{{ request()->is('issues*') ? 'active' : '' }}">
+                <a href="{{ route('issues') }}">
+                  <i class="now-ui-icons tech_headphones"></i>
+                  <p>Issues</p>
+                </a>
+              </li>
+            @endif 
 
+            @if(Auth::user()->hasRole('Manager'))
             <li class="{{ request()->is('products') ? 'active' : '' }}">
               <a href="{{route('products')}}">
                 <i class="now-ui-icons shopping_bag-16"></i>
@@ -64,91 +67,71 @@
             </li>
 
 
-            <li class="{{ request()->is('issues*') ? 'active' : '' }}">
-              <a href="{{ route('issues') }}">
-                <i class="now-ui-icons tech_headphones"></i>
-                <p>Issues</p>
-              </a>
-            </li>
             <li class="active-pro">
-              <a
-                data-toggle="modal"
-                data-target="#issueModal"
-              >
+              <a data-toggle="modal" data-target="#issueModal">
                 <i class="now-ui-icons tech_headphones"></i>
                 <p>Contact Support</p>
               </a>
             </li>
+            @endif 
+
           </ul>
         </div>
       </div>
       <div class="main-panel" id="main-panel">
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-transparent bg-primary navbar-absolute">
-          <div class="container-fluid">
-            <div class="navbar-wrapper">
-              <div class="navbar-toggle">
-                <button type="button" class="navbar-toggler">
-                  <span class="navbar-toggler-bar bar1"></span>
-                  <span class="navbar-toggler-bar bar2"></span>
-                  <span class="navbar-toggler-bar bar3"></span>
-                </button>
-              </div>
-              <a class="navbar-brand">@yield('title')</a>
-            </div>
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navigation"
-              aria-controls="navigation-index"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-bar navbar-kebab"></span>
-              <span class="navbar-toggler-bar navbar-kebab"></span>
-              <span class="navbar-toggler-bar navbar-kebab"></span>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-transparent bg-primary navbar-absolute">
+      <div class="container-fluid">
+        <div class="navbar-wrapper">
+          <div class="navbar-toggle">
+            <button type="button" class="navbar-toggler">
+              <span class="navbar-toggler-bar bar1"></span>
+              <span class="navbar-toggler-bar bar2"></span>
+              <span class="navbar-toggler-bar bar3"></span>
             </button>
-            <div
-              class="collapse navbar-collapse justify-content-end"
-              id="navigation"
-            >
-              <form>
-                <div class="input-group no-border">
-                  <input
-                    type="text"
-                    value=""
-                    class="form-control"
-                    placeholder="Search..."
-                  />
-                  <div class="input-group-append">
-                    <div class="input-group-text">
-                      <i class="now-ui-icons ui-1_zoom-bold"></i>
-                    </div>
-                  </div>
-                </div>
-              </form>
-              <ul class="navbar-nav">
-                <li class="nav-item dropdown">
-                  <a
-                    class="nav-link dropdown-toggle"
-                    id="navbarDropdownMenuLink"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    <i class="now-ui-icons users_single-02"></i>
-                  </a>
-                  <div
-                    class="dropdown-menu dropdown-menu-right"
-                    aria-labelledby="navbarDropdownMenuLink"
-                  >
-                    <a class="dropdown-item" href="{{route('profile')}}">Profile</a>
-                    <a class="dropdown-item text-danger" href="#">Logout</a>
-                  </div>
-                </li>
-              </ul>
-            </div>
           </div>
-        </nav>
-        <!-- End Navbar -->
+          <a class="navbar-brand">@yield('title')</a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation" >
+          <span class="navbar-toggler-bar navbar-kebab"></span>
+          <span class="navbar-toggler-bar navbar-kebab"></span>
+          <span class="navbar-toggler-bar navbar-kebab"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navigation" >
+          <form>
+            <div class="input-group no-border">
+              <input
+                type="text"
+                value=""
+                class="form-control"
+                placeholder="Search..."
+              />
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <i class="now-ui-icons ui-1_zoom-bold"></i>
+                </div>
+              </div>
+            </div>
+          </form>
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                <i class="now-ui-icons users_single-02"></i>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink" >
+                <a class="dropdown-item" href="{{route('profile')}}">Profile</a>
+                <a class="dropdown-item text-danger" href="{{ route('logout') }}"
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    Logout
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" type="hidden">
+                  @csrf
+                </form>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- End Navbar -->

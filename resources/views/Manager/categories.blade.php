@@ -4,11 +4,11 @@
 @section('content')
         <div class="panel-header panel-header-lg">
           <div class="row ml-3 d-flex flex-wrap">
-            <div class="col-md-2">
+            <div class="col-md-3">
               <a href="#">
                 <div class="card">
                   <div class="card-header text-center">
-                    <h3 class="title">Total Categories</h3>
+                    <h3 class="title">Categories</h3>
                   </div>
                   <div class="card-body">
                     <div

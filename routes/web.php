@@ -9,6 +9,7 @@ use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,25 +35,32 @@ Route::middleware(['guest'])->group(function(){
 });
 
 Route::middleware(['auth'])->group(function(){
-    /* Admin */
-    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard'); // change to its own controller
-    Route::get('/issues', [IssueController::class, 'index'])->name('issues'); 
-    Route::get('/issues/view/', [IssueController::class, 'viewIssuePage'])->name('view.issue'); 
+    
+    /* Admin Only */
+    Route::middleware(['admin.view'])->group(function(){
+        Route::get('/issues', [IssueController::class, 'index'])->name('issues'); 
+        Route::get('/issues/view/', [IssueController::class, 'viewIssuePage'])->name('view.issue'); 
+    });
 
-    /* All */
-    Route::get('/profile', [ProfileController::class, 'index'])->name('profile'); 
+    /* Manager Only */
+    Route::middleware(['manager.view'])->group(function(){
+        Route::get('/products', [ProductController::class, 'index'])->name('products'); 
+        Route::get('/categories', [CategoryController::class, 'index'])->name('categories'); 
+        Route::get('/sales', [SaleController::class, 'index'])->name('sales'); 
+    });
 
-    /* Manager */
-    Route::get('/management', [ManagerController::class, 'index'])->name('management'); 
-    Route::get('/products', [ProductController::class, 'index'])->name('products'); 
-    Route::get('/categories', [CategoryController::class, 'index'])->name('categories'); 
-    Route::get('/sales', [SaleController::class, 'index'])->name('sales'); 
+    /* Customer Only */
+    Route::middleware(['customer.view'])->group(function(){
+        Route::get('/c/profile', [ProfileController::class, 'customerIndex'])->name('customer.profile');
+        Route::get('/my-orders', [OrderController::class, 'index'])->name('myorders'); 
+    });
 
     /* Customers */
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'home'])->name('home'); // change to its own controller 
-    Route::get('/shop', [App\Http\Controllers\HomeController::class, 'shop'])->name('shop'); // change to its own controller 
+    Route::get('/shop', [HomeController::class, 'shop'])->name('shop'); // change to its own controller 
     Route::get('/product/id', [ProductController::class, 'productDetails'])->name('product.details');
-    Route::get('/contact', [App\Http\Controllers\HomeController::class, 'contact'])->name('contact'); // change to its own controller 
-    Route::get('/my-orders', [OrderController::class, 'index'])->name('myorders'); 
-    Route::get('/c/profile', [ProfileController::class, 'customerIndex'])->name('customer.profile');
+    Route::get('/contact', [HomeController::class, 'contact'])->name('contact'); // change to its own controller 
+    
+    /* All */
+    Route::get('/home', [HomeController::class, 'index'])->name('home'); 
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile'); 
 });
