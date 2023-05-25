@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{ asset('css/owl.css') }}">
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
     <link rel="stylesheet" href="{{ asset('css/cart.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/dropdown.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/dropdown.scss') }}">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 
   </head>
@@ -55,8 +55,8 @@
                       <li><a href="{{ route('shop') }}" class="{{ request()->is('shop') ? 'active' : '' }}" >Our Shop</a></li>
                       <li><a href="{{ route('product.details') }}" class="{{ request()->is('product*') ? 'active' : '' }}">Product Details</a></li>
                       <li><a href="{{ route('contact') }}" class="{{ request()->is('contact') ? 'active' : '' }}">Contact Us</a></li>
-      
-                       
+                      
+                      
                     @auth
                       <li class="dropdown">
                         <a href="#"><i class="fa-solid fa-user"></i></a>
@@ -74,7 +74,25 @@
                           </form>
                         </div>
                       </li>
-
+                      <li class="dropdown bell-a">
+                        <a href="#"><i class="fa-solid fa-bell"></i></a>
+                        <div class="dropdown-content-a">
+                            <div class="content-a">
+                              <img src="{{ asset('images/single-game.jpg') }}" src="err"></img>
+                              <div> <h4>COD</h4> <h5> lorem text lorem the lorem pensul ! </h5> </div>
+                            </div>
+                            <div class="content-a">
+                              <img src="{{ asset('images/trending-04.jpg') }}" src="err"></img>
+                              <div> <h4>Luege</h4> <h5> lorem text lorem the lorem pensul ! </h5> </div>
+                            </div>
+                            <div class="content-a">
+                              <img src="{{ asset('images/trending-01.jpg') }}" src="err"></img>
+                              <div> <h4>MGS</h4> <h5> lorem text lorem the lorem pensul ! </h5> </div>
+                            </div>
+                        </div>
+                    </li>
+                    
+                      
                       <li><a id="cart-icon-a"><i class="fa-solid fa-cart-shopping"></i></a></li>
                       @endauth                      
 
