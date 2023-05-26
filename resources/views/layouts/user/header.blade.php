@@ -99,6 +99,7 @@
                               <i class="fa-regular fa-eye-slash"></i>
                             </div>
                         </div>
+                        <span class="notification-dot"></span>
                     </li>
                     
                       
