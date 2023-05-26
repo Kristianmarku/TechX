@@ -79,15 +79,24 @@
                         <div class="dropdown-content-a">
                             <div class="content-a">
                               <img src="{{ asset('images/single-game.jpg') }}" src="err"></img>
-                              <div> <h4>COD</h4> <h5> lorem text lorem the lorem pensul ! </h5> </div>
+                              <div class="px-2">
+                                <h4>COD</h4> <h5> lorem text lorem the lorem pensul ! </h5>
+                              </div>
+                              <i class="fa-regular fa-eye-slash"></i>
                             </div>
                             <div class="content-a">
                               <img src="{{ asset('images/trending-04.jpg') }}" src="err"></img>
-                              <div> <h4>Luege</h4> <h5> lorem text lorem the lorem pensul ! </h5> </div>
+                              <div class="px-2">
+                                <h4>COD</h4> <h5> lorem text lorem the lorem pensul ! </h5>
+                              </div>
+                              <i class="fa-regular fa-eye-slash"></i>
                             </div>
                             <div class="content-a">
                               <img src="{{ asset('images/trending-01.jpg') }}" src="err"></img>
-                              <div> <h4>MGS</h4> <h5> lorem text lorem the lorem pensul ! </h5> </div>
+                              <div class="px-2">
+                                <h4>COD</h4> <h5> lorem text lorem the lorem pensul ! </h5>
+                              </div>
+                              <i class="fa-regular fa-eye-slash"></i>
                             </div>
                         </div>
                     </li>
