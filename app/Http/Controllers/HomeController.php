@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -25,11 +25,18 @@ class HomeController extends Controller
      */
     public function index() : Renderable
     {
+        if(!Auth::user()){
+            return view('user.index');
+        }
+
         if(Auth::user()->role_id == 1){
             return view('admin.dashboard');
         }elseif(Auth::user()->role_id == 2){
             return view('manager.manager_dashboard');
+        }elseif(Auth::user()->role_id == 3){
+            return view('user.index');
         }
+
         return view('user.index');
     }
 

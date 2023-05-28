@@ -26,12 +26,15 @@ Auth::routes();
 
 Route::middleware(['guest'])->group(function(){
     Route::get('/', function(){
-        return view('auth.login');
-    })->name('loginPage');
+        // return view('auth.login');
+        return redirect(route('home'));
+    });
     
     Route::get('/signup', function(){
         return view('auth.signup');
     })->name('signup');
+
+    
 });
 
 Route::middleware(['auth'])->group(function(){
@@ -55,12 +58,13 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/my-orders', [OrderController::class, 'index'])->name('myorders'); 
     });
 
-    /* Customers */
-    Route::get('/shop', [HomeController::class, 'shop'])->name('shop'); // change to its own controller 
-    Route::get('/product/id', [ProductController::class, 'productDetails'])->name('product.details');
-    Route::get('/contact', [HomeController::class, 'contact'])->name('contact'); // change to its own controller 
-    
-    /* All */
-    Route::get('/home', [HomeController::class, 'index'])->name('home'); 
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile'); 
 });
+
+/* Customers */
+Route::get('/shop', [HomeController::class, 'shop'])->name('shop'); // change to its own controller 
+Route::get('/product/id', [ProductController::class, 'productDetails'])->name('product.details');
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact'); // change to its own controller 
+
+/* All */
+Route::get('/home', [HomeController::class, 'index'])->name('home'); 
