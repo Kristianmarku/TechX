@@ -127,3 +127,8 @@ body::before {
 .card-footer a {
     color: var(--color-orange);
 }
+
+.error-message {
+    color: red !important;
+    margin: 3px !important;
+}

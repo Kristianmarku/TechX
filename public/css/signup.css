@@ -130,3 +130,46 @@ body::before {
 .card-footer a {
     color: var(--color-orange);
 }
+
+.is-invalid {
+    border: 1px solid red !important;
+    background-color: #f8d7da !important;
+    color: #721c24 !important;
+}
+
+@media (max-width: 1930px) {
+    .card-header img {
+        width: 70px;
+    }
+
+    .card-header p {
+        font-size: 20px;
+    }
+    .card {
+        width: 600px;
+        height: 650px;
+    }
+
+    .row input {
+        width: 200px;
+    }
+}
+
+@media (max-width: 424px) {
+    .card-header img {
+        width: 70px;
+    }
+
+    .card-body p {
+        font-size: 15px;
+        text-align: center;
+    }
+    .card {
+        width: 40vh;
+        height: 80vh;
+    }
+
+    .row input {
+        width: 100px;
+    }
+}
