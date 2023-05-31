@@ -66,5 +66,6 @@ class Kernel extends HttpKernel
         'admin.view' => \App\Http\Middleware\AdminView::class,
         'manager.view' => \App\Http\Middleware\ManagerView::class,
         'customer.view' => \App\Http\Middleware\CustomerView::class,
+        'support.view' => \App\Http\Middleware\SupportView::class,
     ];
 }

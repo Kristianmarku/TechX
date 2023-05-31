@@ -35,6 +35,8 @@ class HomeController extends Controller
             return view('manager.manager_dashboard');
         }elseif(Auth::user()->role_id == 3){
             return view('user.index');
+        }elseif(Auth::user()->role_id == 4){
+            return view('support.dashboard');
         }
 
         return view('user.index');

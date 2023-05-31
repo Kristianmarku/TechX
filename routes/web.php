@@ -10,6 +10,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SupportController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,7 +28,6 @@ Auth::routes();
 
 Route::middleware(['guest'])->group(function(){
     Route::get('/', function(){
-        // return view('auth.login');
         return redirect(route('home'));
     });
     
@@ -34,15 +35,17 @@ Route::middleware(['guest'])->group(function(){
         return view('auth.signup');
     })->name('signup');
 
-    
+    Route::get('/login', function(){
+        return view('auth.login');
+    })->name('login');
 });
 
+/* Authenticated */
 Route::middleware(['auth'])->group(function(){
     
     /* Admin Only */
     Route::middleware(['admin.view'])->group(function(){
-        Route::get('/issues', [IssueController::class, 'index'])->name('issues'); 
-        Route::get('/issues/view/', [IssueController::class, 'viewIssuePage'])->name('view.issue'); 
+     
     });
 
     /* Manager Only */
@@ -56,6 +59,14 @@ Route::middleware(['auth'])->group(function(){
     Route::middleware(['customer.view'])->group(function(){
         Route::get('/c/profile', [ProfileController::class, 'customerIndex'])->name('customer.profile');
         Route::get('/my-orders', [OrderController::class, 'index'])->name('myorders'); 
+    });
+
+    /* Support Only */
+    Route::middleware(['support.view'])->group(function(){
+        Route::get('/asd', [SupportController::class, ''])->name('');
+        Route::get('/asda', [SupportController::class, ''])->name(''); 
+        Route::get('/issues', [IssueController::class, 'index'])->name('issues'); 
+        Route::get('/issues/view/', [IssueController::class, 'viewIssuePage'])->name('view.issue'); 
     });
 
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile'); 

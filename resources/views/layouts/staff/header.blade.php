@@ -35,7 +35,7 @@
               </a>
             </li>
 
-            @if(Auth::user()->hasRole('Admin'))
+            @if(Auth::user()->hasRole('Support'))
               <li class="{{ request()->is('issues*') ? 'active' : '' }}">
                 <a href="{{ route('issues') }}">
                   <i class="now-ui-icons tech_headphones"></i>

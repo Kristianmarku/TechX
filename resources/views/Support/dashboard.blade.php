@@ -5,14 +5,14 @@
         <div class="panel-header panel-header-lg">
           <div class="row ml-3">
             <div class="col-md-2">
-              <a href="#">
+              <a href="{{route('issues')}}">
                 <div class="card">
                   <div class="card-header text-center">
-                    <h3 class="title">Clients</h3>
+                    <h3 class="title">Active Issues</h3>
                   </div>
                   <div class="card-body">
                     <div class="d-flex justify-content-center align-items-center">
-                      <h1>59,209</h1>
+                      <h1>14</h1>
                     </div>
                   </div>
                 </div>
@@ -20,29 +20,14 @@
             </div>
 
             <div class="col-md-2">
-              <a href="#">
+              <a href="{{route('issues')}}">
                 <div class="card">
                   <div class="card-header text-center">
-                    <h3 class="title">Managers</h3>
+                    <h3 class="title">Today's Issues</h3>
                   </div>
                   <div class="card-body">
                     <div class="d-flex justify-content-center align-items-center">
                       <h1>3</h1>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div class="col-md-2">
-              <a href="#">
-                <div class="card">
-                  <div class="card-header text-center">
-                    <h3 class="title">Support</h3>
-                  </div>
-                  <div class="card-body">
-                    <div class="d-flex justify-content-center align-items-center">
-                      <h1>32</h1>
                     </div>
                   </div>
                 </div>
@@ -55,76 +40,28 @@
             <div class="col-lg-12">
               <div class="card">
                 <div class="card-header">
-                  <h5 class="card-category">All Users</h5>
-                  <h4 class="card-title">Users Information</h4>
+                  <h5 class="card-category">Most Recently</h5>
+                  <h4 class="card-title">Issues</h4>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
                     <table class="table">
                       <thead class="text-primary">
-                        <th>Firstname</th>
-                        <th>Lastname</th>
-                        <th>Email</th>
+                        <th>ID</th>
+                        <th>User</th>
+                        <th>Title</th>
+                        <th>Description</th>
                         <th>Status</th>
-                        <th>Created</th>
-                        <th>Updated</th>
-                        <th>Action</th>
+                        <th>Priority</th>
                       </thead>
                       <tbody>
                         <tr>
+                          <td>#</td>
                           <td>Kristian</td>
                           <td>Marku</td>
-                          <td>kristian@marku.com</td>
-                          <td>
-                            <div class="badge badge-success p-2">
-                              Active
-                            </div>
-                          </td>
-                          <td>1.4.2023</td>
-                          <td></td>
-                          <td>
-                            <button
-                              class="btn btn-primary"
-                              data-toggle="modal"
-                              data-target="#editUserModal"
-                            >
-                              Edit
-                            </button>
-                            <button class="btn btn-danger">Delete</button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Erblin</td>
-                          <td>Krasniqi</td>
-                          <td>erblin@krasniqi.com</td>
-                          <td>
-                            <div class="badge badge-success p-2">
-                              Active
-                            </div>
-                          </td>
-                          <td>1.4.2023</td>
-                          <td></td>
-                          <td>
-                            <button
-                              class="btn btn-primary"
-                              data-toggle="modal"
-                              data-target="#editUserModal"
-                            >
-                              Edit
-                            </button>
-                            <button class="btn btn-danger">Delete</button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Nikollë</td>
-                          <td>Culaj</td>
-                          <td>niki@culaj.com</td>
-                          <td>
-                            <div class="badge badge-success p-2">
-                              Active
-                            </div>
-                          </td>
-                          <td>1.4.2023</td>
+                          <td>Error while checking-out</td>
+                          <td>In Review</td>
+                          <td>Highest</td>
                           <td></td>
                           <td>
                             <button

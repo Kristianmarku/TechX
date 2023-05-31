@@ -46,7 +46,7 @@
                     </div>
                     <button type="submit">Signup</button>
                     <div class="card-footer">
-                        <a href="{{ route('loginPage') }}">Already have an account? Login here</a>
+                        <a href="{{ route('login') }}">Already have an account? Login here</a>
                     </div>
                 </div>
             </form>
