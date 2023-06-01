@@ -26,22 +26,22 @@
                   <div class="row">
                     <div class="col-lg-6">
                       <fieldset>
-                        <input type="text" name="firstname" placeholder="First Name" value="{{ Auth::user()->firstname }}" autocomplete="on" >
+                        <input type="text" name="firstname" placeholder="First Name" value="{{ $user->firstname }}" autocomplete="on">
                       </fieldset>
                     </div>
                     <div class="col-lg-6">
                       <fieldset>
-                        <input type="text" name="lastname" placeholder="Last Name" value="{{ Auth::user()->lastname }}" autocomplete="on" >
+                        <input type="text" name="lastname" placeholder="Last Name" value="{{ $user->lastname }}" autocomplete="on" >
                       </fieldset>
                     </div>
                     <div class="col-lg-6">
                         <fieldset>
-                          <input type="text" name="email" pattern="[^ @]*@[^ @]*" placeholder="E-mail" value="{{ Auth::user()->email }}" >
+                          <input type="text" name="email" pattern="[^ @]*@[^ @]*" placeholder="E-mail" value="{{ $user->email }}" >
                         </fieldset>
                     </div>
                     <div class="col-lg-6">
                         <fieldset>
-                          <input type="text" name="phone" placeholder="Phone" value="{{ Auth::user()->phone }}" autocomplete="on" >
+                          <input type="text" name="phone" placeholder="Phone" value="{{ $user->phone }}" autocomplete="on" >
                         </fieldset>
                     </div>
                     <div class="col-lg-6">

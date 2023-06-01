@@ -7,6 +7,7 @@ use App\Models\UserAddress;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
@@ -17,7 +18,8 @@ class ProfileController extends Controller
      */
     public function index() : Renderable
     {
-        return view('profile');
+        $user = User::findOrFail(Auth::id());
+        return view('profile', compact('user'));
     }
 
     public function customerIndex() : Renderable
@@ -78,13 +80,14 @@ class ProfileController extends Controller
      */
     public function update(Request $request)
     {
-         // Validate the request data
+        // Validate the request data
         $validatedData = $request->validate([
             'firstname' => 'required',
             'lastname' => 'required',
             'email' => 'required|email',
             'phone' => 'required',
             'address' => 'required',
+            'address_second' => 'required',
             'state' => 'required',
             'country' => 'required',
             'city' => 'required',
@@ -122,6 +125,33 @@ class ProfileController extends Controller
         // Redirect back
         return redirect()->back()->with('success', 'Profile updated successfully');
     }
+
+
+      /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function updatePassword(Request $request) 
+    {
+        // Validate the form inputs
+        $request->validate([
+            'new_password' => 'required|min:8|confirmed',
+        ]);
+
+        // Get the authenticated user
+        $user = User::findOrFail(Auth::id());
+
+        // Update the user's password
+        $user->password = Hash::make($request->new_password);
+        $user->save();
+
+        // Redirect back with a success message
+        return redirect()->back()->with('success', 'Password updated successfully.');
+    }
+
 
     /**
      * Remove the specified resource from storage.

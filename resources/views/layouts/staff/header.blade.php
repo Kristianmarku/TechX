@@ -17,9 +17,15 @@
     <!-- CSS Files -->
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('css/notify.css') }}">
   </head>
 
-  <body class="">
+  <body>
+
+    <div class="notification">
+      <span class="message"></span>
+    </div>
+
     <div class="wrapper">
       <div class="sidebar" data-color="orange">
         <div class="logo">
