@@ -40,37 +40,18 @@
                 </div>
               </div>
               <div class="col-lg-12">
+                <p>Having issues? Our support team will help you. Contact us!</p>
+                <br>
                 <form>
                   <div class="row">
-                    <div class="col-lg-6">
-                      <fieldset>
-                        <input type="name" name="name" id="name" placeholder="Your Name..." autocomplete="on" required>
-                      </fieldset>
-                    </div>
-                    <div class="col-lg-6">
-                      <fieldset>
-                        <input type="surname" name="surname" id="surname" placeholder="Your Surname..." autocomplete="on" required>
-                      </fieldset>
-                    </div>
-                    <div class="col-lg-6">
-                      <fieldset>
-                        <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your E-mail..." required="">
-                      </fieldset>
-                    </div>
-                    <div class="col-lg-6">
-                      <fieldset>
-                        <input type="subject" name="subject" id="subject" placeholder="Subject..." autocomplete="on" >
-                      </fieldset>
+                    <div class="col-lg-12">
+                        <input type="text" name="title" placeholder="Title" autocomplete="on" required>
                     </div>
                     <div class="col-lg-12">
-                      <fieldset>
                         <textarea name="message" id="message" placeholder="Your Message"></textarea>
-                      </fieldset>
                     </div>
                     <div class="col-lg-12">
-                      <fieldset>
-                        <button id="form-submit" class="orange-button">Send Message Now</button>
-                      </fieldset>
+                        <button type="submit" class="orange-button">Send Message Now</button>
                     </div>
                   </div>
                 </form>

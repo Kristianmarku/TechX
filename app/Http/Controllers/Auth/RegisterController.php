@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\UserAddress;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -50,11 +51,20 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
+            /* User Validation */
             'firstname' => ['required', 'string', 'max:100'],
             'lastname' => ['required', 'string', 'max:100'],
             'phone' => ['required', 'string', 'max:100'],
             'email' => ['required', 'string', 'email', 'max:100', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+
+            /* User Address Validation */
+            'address' => ['required', 'string', 'max:100'],
+            'address_second' => ['required', 'string', 'max:100'],
+            'state' => ['required', 'string', 'max:100'],
+            'country' => ['required', 'string', 'max:100'],
+            'city' => ['required', 'string', 'max:100'],
+            'zip_code' => ['required', 'string', 'max:100'],
         ]);
     }
 
@@ -66,7 +76,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'firstname' => $data['firstname'],
             'lastname' => $data['lastname'],
             'phone' => $data['phone'],
@@ -74,5 +84,18 @@ class RegisterController extends Controller
             'role_id' => 3,
             'password' => Hash::make($data['password']),
         ]);
+
+        $address = new UserAddress([
+            'address' => $data['address'],
+            'address_second' => $data['address_second'],
+            'state' => $data['state'],
+            'country' => $data['country'],
+            'city' => $data['city'],
+            'zip_code' => $data['zip_code'],
+        ]);
+
+        $user->address()->save($address);
+        
+        return $user;
     }
 }

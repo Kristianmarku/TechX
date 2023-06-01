@@ -29,16 +29,16 @@
                         <input name="phone" class="@error('phone') is-invalid @enderror" type="text" placeholder="{{ $errors->has('phone') ? 'Phone required!' : 'Phone' }}" value="{{ old('phone') }}">
                     </div>
                     <div class="row">
-                        <input type="text" placeholder="Address 1">
-                        <input type="text" placeholder="Address 2">
+                        <input name="address" class="@error('address') is-invalid @enderror" type="text" placeholder="{{ $errors->has('address') ? 'Address required!' : 'Address' }}" value="{{ old('address') }}">
+                        <input name="address_second" class="@error('address_second') is-invalid @enderror" type="text" placeholder="{{ $errors->has('address_second') ? 'Second Address required!' : 'Second Address' }}" value="{{ old('address_second') }}">
                     </div>
                     <div class="row">
-                        <input type="text" placeholder="State">
-                        <input type="text" placeholder="Country">
+                        <input name="state" class="@error('state') is-invalid @enderror" type="text" placeholder="{{ $errors->has('state') ? 'State required!' : 'State' }}" value="{{ old('state') }}">
+                        <input name="country" class="@error('country') is-invalid @enderror" type="text" placeholder="{{ $errors->has('country') ? 'Country required!' : 'Country' }}" value="{{ old('country') }}">
                     </div>
                     <div class="row">
-                        <input type="text" placeholder="City">
-                        <input type="text" placeholder="Zip Code">
+                        <input name="city" class="@error('city') is-invalid @enderror" type="text" placeholder="{{ $errors->has('city') ? 'City required!' : 'City' }}" value="{{ old('city') }}">
+                        <input name="zip_code" class="@error('zip_code') is-invalid @enderror" type="text" placeholder="{{ $errors->has('zip_code') ? 'Zip Code required!' : 'Zip Code' }}" value="{{ old('zip_code') }}">
                     </div>
                     <div class="row">
                         <input name="password" class="@error('password') is-invalid @enderror" type="password" placeholder="{{ $errors->has('password') ? 'Password required!' : 'Password' }}" autocomplete="new-password">

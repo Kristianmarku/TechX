@@ -21,61 +21,73 @@
           <div class="right-content">
             <div class="row">
               <div class="col-lg-12">
-                <form>
+                <form method="POST" action="{{ route("update.profile") }}">
+                  @csrf
                   <div class="row">
                     <div class="col-lg-6">
                       <fieldset>
-                        <input type="text" name="firstname" id="firstname" placeholder="First Name" autocomplete="on" required>
+                        <input type="text" name="firstname" placeholder="First Name" value="{{ Auth::user()->firstname }}" autocomplete="on" >
                       </fieldset>
                     </div>
                     <div class="col-lg-6">
                       <fieldset>
-                        <input type="text" name="lastname" id="lastname" placeholder="Last Name" autocomplete="on" required>
+                        <input type="text" name="lastname" placeholder="Last Name" value="{{ Auth::user()->lastname }}" autocomplete="on" >
                       </fieldset>
                     </div>
                     <div class="col-lg-6">
                         <fieldset>
-                          <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="E-mail" required="">
+                          <input type="text" name="email" pattern="[^ @]*@[^ @]*" placeholder="E-mail" value="{{ Auth::user()->email }}" >
                         </fieldset>
                     </div>
                     <div class="col-lg-6">
                         <fieldset>
-                          <input type="text" name="phone" id="phone" placeholder="Phone" autocomplete="on" required>
+                          <input type="text" name="phone" placeholder="Phone" value="{{ Auth::user()->phone }}" autocomplete="on" >
                         </fieldset>
                     </div>
                     <div class="col-lg-6">
                       <fieldset>
-                        <input type="text" name="address" id="address" placeholder="Address 1" autocomplete="on" >
+                        <input type="text" name="address" placeholder="Address 1" value="{{ $user->address->address }}" autocomplete="on">
                       </fieldset>
                     </div>
                     <div class="col-lg-6">
                         <fieldset>
-                          <input type="text" name="address_second" id="address_second" placeholder="Address 2" autocomplete="on" >
+                          <input type="text" name="address_second" placeholder="Address 2" value="{{ $user->address->address_second }}" autocomplete="on" >
                         </fieldset>
                     </div>
                     <div class="col-lg-6">
                         <fieldset>
-                          <input type="text" name="state" id="state" placeholder="State" autocomplete="on" >
+                          <input type="text" name="state" placeholder="State" value="{{ $user->address->state }}" autocomplete="on" >
                         </fieldset>
                     </div>
                     <div class="col-lg-6">
                         <fieldset>
-                          <input type="text" name="country" id="country" placeholder="Country" autocomplete="on" >
+                          <input type="text" name="country" placeholder="Country" value="{{ $user->address->country }}" autocomplete="on" >
                         </fieldset>
                     </div>
                     <div class="col-lg-6">
                         <fieldset>
-                          <input type="text" name="city" id="city" placeholder="City" autocomplete="on" >
+                          <input type="text" name="city" placeholder="City" value="{{ $user->address->city }}" autocomplete="on" >
                         </fieldset>
                     </div>
                     <div class="col-lg-6">
                         <fieldset>
-                          <input type="text" name="zip_code" id="zip_code" placeholder="Zip Code" autocomplete="on" >
+                          <input type="text" name="zip_code" placeholder="Zip Code" value="{{ $user->address->zip_code }}" autocomplete="on" >
                         </fieldset>
                     </div>
+
+                    @if($errors->any())
+                      <div class="col-lg-6">
+                          <div class="error-messages">
+                                @foreach($errors->all() as $error)
+                                  <p>{{ $error }}</p>
+                                @endforeach
+                          </div>
+                      </div>
+                    @endif
+
                     <div class="col-lg-12">
                       <fieldset>
-                        <button id="form-submit" class="orange-button">Save Changes</button>
+                        <button type="submit" class="orange-button">Save Changes</button>
                       </fieldset>
                     </div>
                   </div>

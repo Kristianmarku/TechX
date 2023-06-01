@@ -1597,6 +1597,24 @@ Contact PAge Style
 
 /* 
 ---------------------------------------------
+Error Messages
+--------------------------------------------- 
+*/
+
+.error-messages {
+    background: #e81c40;
+    padding: 5px;
+    border-radius: 10px;
+    margin: 5px 0px 25px 0px;
+}
+
+.error-messages p {
+    color: #fff;
+    padding-left: 10px;
+}
+
+/* 
+---------------------------------------------
 Responsive Style
 --------------------------------------------- 
 */

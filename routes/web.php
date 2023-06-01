@@ -55,16 +55,17 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/sales', [SaleController::class, 'index'])->name('sales'); 
     });
 
-    /* Customer Only */
+    /* Authenticated Customers Only */
     Route::middleware(['customer.view'])->group(function(){
         Route::get('/c/profile', [ProfileController::class, 'customerIndex'])->name('customer.profile');
+        Route::post('/c/profile', [ProfileController::class, 'update'])->name('update.profile');
         Route::get('/my-orders', [OrderController::class, 'index'])->name('myorders'); 
     });
 
     /* Support Only */
     Route::middleware(['support.view'])->group(function(){
-        Route::get('/asd', [SupportController::class, ''])->name('');
-        Route::get('/asda', [SupportController::class, ''])->name(''); 
+        // Route::get('/asd', [SupportController::class, ''])->name('');
+        // Route::get('/asda', [SupportController::class, ''])->name(''); 
         Route::get('/issues', [IssueController::class, 'index'])->name('issues'); 
         Route::get('/issues/view/', [IssueController::class, 'viewIssuePage'])->name('view.issue'); 
     });

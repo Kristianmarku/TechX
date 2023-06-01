@@ -52,7 +52,13 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class);
     }
 
-    public function hasRole($role){
+    public function hasRole($role)
+    {
         return Auth::user()->role->name === $role;
+    }
+
+    public function address()
+    {
+        return $this->hasOne(UserAddress::class);
     }
 }

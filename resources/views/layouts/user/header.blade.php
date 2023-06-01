@@ -18,12 +18,17 @@
     <link rel="stylesheet" href="{{ asset('css/owl.css') }}">
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
     <link rel="stylesheet" href="{{ asset('css/cart.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/notify.css') }}">
     <link rel="stylesheet" href="{{ asset('css/dropdown.scss') }}">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 
   </head>
-
 <body>
+
+  <div class="notification">
+    <span class="message"></span>
+  </div>
+  
 
   <!-- ***** Preloader Start ***** -->
   <div id="js-preloader" class="js-preloader">
@@ -74,6 +79,7 @@
                           </form>
                         </div>
                       </li>
+
                       <li class="dropdown bell-a">
                         <a href="#"><i class="fa-solid fa-bell"></i></a>
                         <div class="dropdown-content-a">
@@ -102,7 +108,6 @@
                         <span class="notification-dot"></span>
                     </li>
                     
-                      
                       <li><a id="cart-icon-a"><i class="fa-solid fa-cart-shopping"></i></a></li>
                       @endauth                      
 
