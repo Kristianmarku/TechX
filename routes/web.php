@@ -11,6 +11,7 @@ use App\Http\Controllers\SaleController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SupportController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,7 +46,10 @@ Route::middleware(['auth'])->group(function(){
     
     /* Admin Only */
     Route::middleware(['admin.view'])->group(function(){
-     
+        Route::get('/user/edit/{id}', [AdminController::class, 'editUser'])->name('edit.user');
+        Route::post('/user/edit/{id}', [AdminController::class, 'update'])->name('update.user.profile');
+        Route::post('/user/update-password/{id}', [AdminController::class, 'updatePassword'])->name('update.user.password');
+        Route::delete('/user/delete/{id}', [AdminController::class, 'delete'])->name('delete.user');
     });
 
     /* Manager Only */
