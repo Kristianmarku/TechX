@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 
@@ -14,17 +15,30 @@ class CategoryController extends Controller
      */
     public function index() : Renderable
     {
-        return view('manager.categories');
+        $categoriesCount = Category::all()->count();
+        return view('manager.categories', compact('categoriesCount'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        // Validate data
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+        ]);
+
+        // Store to database
+        Category::create([
+            'name' => $validatedData['name'],
+            'description' => $validatedData['description']
+        ]);
+
+        return redirect()->back()->with('success', 'Category added.');
     }
 
     /**
@@ -76,10 +90,11 @@ class CategoryController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        Category::findOrFail($id)->delete();
+        return redirect()->back()->with('message', 'Category deleted.');
     }
 }

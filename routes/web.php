@@ -62,8 +62,17 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/products/edit/{id}', [ProductController::class, 'edit'])->name('edit.product');
         Route::post('/products/edit/{id}', [ProductController::class, 'update'])->name('update.product');
 
+        /* Categories */
         Route::get('/categories', [CategoryController::class, 'index'])->name('categories'); 
+        Route::post('/categories', [CategoryController::class, 'create'])->name('add.category');
+        Route::delete('/categories/{id}', [CategoryController::class, 'delete'])->name('delete.category');
+        // Route::get('/categories/edit/{id}', [CategoryController::class, 'edit'])->name('edit.category');
+        // Route::post('/categories/edit/{id}', [CategoryController::class, 'update'])->name('update.category');
+
+        /* Sales */
         Route::get('/sales', [SaleController::class, 'index'])->name('sales'); 
+        Route::post('/sales', [SaleController::class, 'create'])->name('add.sale');
+        Route::delete('/sales/{id}', [SaleController::class, 'delete'])->name('delete.sale');
     });
 
     /* Authenticated Customers Only */

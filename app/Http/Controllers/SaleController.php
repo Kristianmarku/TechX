@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
+use App\Models\ProductSale;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 
@@ -14,18 +16,40 @@ class SaleController extends Controller
      */
     public function index() : Renderable
     {
-        return view('manager.sales');
+        $productsOnSale = Product::has('productSale')->count();
+        return view('manager.sales', compact('productsOnSale'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'product_id' => 'required',
+            'sale_price' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+        ]);
+    
+        $productSale = ProductSale::where('product_id', $validatedData['product_id'])->first();
+    
+        if ($productSale) {
+            $productSale->delete();
+        }
+    
+        ProductSale::create([
+            'product_id' => $validatedData['product_id'],
+            'sale_price' => $validatedData['sale_price'],
+            'start_date' => $validatedData['start_date'],
+            'end_date' => $validatedData['end_date'],
+        ]);
+    
+        return redirect()->back()->with('success', 'Sale added to product.');
     }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -76,10 +100,11 @@ class SaleController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        ProductSale::findOrFail($id)->delete();
+        return redirect()->back()->with('success', 'Sale deleted.');
     }
 }

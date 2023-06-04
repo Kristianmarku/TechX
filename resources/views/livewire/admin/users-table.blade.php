@@ -55,7 +55,7 @@
                         <td>
                             <a href="{{ route('edit.user', $user->id) }}" class="btn btn-primary">Edit</a>
                             <button onclick="confirmDelete({{ $user->id }})" class="btn btn-danger">Delete</button>
-                            <form type="hidden" id="deleteForm_{{ $user->id }}" action="{{ route('delete.user', $user->id) }}" method="POST">
+                            <form id="deleteForm_{{ $user->id }}" action="{{ route('delete.user', $user->id) }}" method="POST" style="display: none;">
                               @csrf
                               @method('DELETE')
                             </form>
@@ -74,39 +74,4 @@
         </div>
       </div>
     </div>
-    
-  @push('scripts')
-    <script>
-      function confirmDelete(userId) {
-        const swalWithBootstrapButtons = Swal.mixin({
-          customClass: {
-            confirmButton: 'btn btn-success',
-            cancelButton: 'btn btn-danger'
-          },
-          buttonsStyling: false
-        });
-
-        swalWithBootstrapButtons.fire({
-          title: 'Are you sure?',
-          text: "You won't be able to revert this!",
-          icon: 'warning',
-          showCancelButton: true,
-          confirmButtonText: 'Yes, delete it!',
-          cancelButtonText: 'No, cancel!',
-          reverseButtons: true
-        }).then((result) => {
-          if (result.isConfirmed) {
-            // Form submission code here
-            document.getElementById('deleteForm_' + userId).submit();
-
-            swalWithBootstrapButtons.fire(
-              'Deleted!',
-              'User has been deleted.',
-              'success'
-            );
-          } 
-        });
-      }
-    </script>
-  @endpush
 </div>

@@ -28,8 +28,8 @@
                         <td>{{ $pro->price }}€</td>
                         <td>
                         <a href="{{ route('edit.product', $pro->id) }}" class="btn btn-warning">Edit</a>
-                        <button onclick="confirmDelete({{ $pro->id }})" class="btn btn-danger">Delete</button>
-                        <form type="hidden" id="deleteForm_{{ $pro->id }}" action="{{ route('delete.product', $pro->id) }}" method="POST">
+                        <button onclick="confirmDelete({{ $pro->id }})" type="button" class="btn btn-danger">Delete</button>
+                        <form id="deleteForm_{{ $pro->id }}" action="{{ route('delete.product', $pro->id) }}" method="POST" style="display: none;">
                           @csrf
                           @method('DELETE')
                         </form>
@@ -37,7 +37,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td>
+                        <td colspan="8">
                             <p class="text-danger">None available</p>
                         </td>
                     </tr>
@@ -93,39 +93,5 @@
   fullscreenImage.addEventListener('click', function() {
     fullscreenImage.style.display = 'none';
   });
-</script>
-
-
-<script>
-function confirmDelete(id) //library
-    const swalWithBootstrapButtons = Swal.mixin({
-    customClass: {
-        confirmButton: 'btn btn-success',
-        cancelButton: 'btn btn-danger'
-    },
-    buttonsStyling: false
-    });
-
-    swalWithBootstrapButtons.fire({
-    title: 'Are you sure?',
-    text: "You won't be able to revert this!",
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonText: 'Yes, delete it!',
-    cancelButtonText: 'No, cancel!',
-    reverseButtons: true
-    }).then((result) => {
-    if (result.isConfirmed) {
-        // Form submission code here
-        document.getElementById('deleteForm_' + id).submit();
-
-        swalWithBootstrapButtons.fire(
-        'Deleted!',
-        'User has been deleted.',
-        'success'
-        );
-    } 
-    });
-}
 </script>
 @endpush

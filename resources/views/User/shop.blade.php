@@ -36,8 +36,12 @@
               <div class="thumb">
                 <a href="{{ route('product.details', $pro->id) }}"><img src="{{ asset('storage/cover_images/'. $pro->cover_image ) }}" alt="Product Image"></a>
                 <span class="price">
-                  @if($pro->sale_price) <em> {{ $pro->price ?? '-' }}</em> @endif 
-                  {{ $pro->sale_price ? $pro->sale_price : $pro->price }}€
+                  @if ($pro->productSale && now()->between($pro->productSale->start_date, $pro->productSale->end_date))
+                    <em>{{ $pro->price ?? '-' }}</em>
+                    {{ $pro->productSale->sale_price }}€
+                  @else
+                    {{ $pro->price }}€
+                  @endif
                 </span>
               </div>
               <div class="down-content">

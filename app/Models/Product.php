@@ -13,7 +13,6 @@ class Product extends Model
         'name',
         'description',
         'price',
-        'sale_price',
         'quantity',
         'category_id',
         'cover_image', 
@@ -22,5 +21,10 @@ class Product extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function productSale()
+    {
+        return $this->hasOne(ProductSale::class);
     }
 }

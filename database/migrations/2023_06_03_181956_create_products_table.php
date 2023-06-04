@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('name');
             $table->string('description');
             $table->decimal('price');
-            $table->decimal('sale_price')->nullable();
             $table->integer('quantity');
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');

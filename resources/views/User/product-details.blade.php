@@ -25,8 +25,12 @@
         <div class="col-lg-6 align-self-center">
           <h4>{{ $product->name }}</h4>
           <span class="price">
-             @if($product->sale_price) <em> {{ $product->price ?? '-' }}</em> @endif 
-             {{ $product->sale_price ? $product->sale_price : $product->price }}€
+            @if ($product->productSale && now()->between($product->productSale->start_date, $product->productSale->end_date))
+              <em>{{ $product->price ?? '-' }}</em>
+              {{ $product->productSale->sale_price }}€
+            @else
+              {{ $product->price }}€
+            @endif
           </span>
 
           <p>{{ $product->description }}</p>

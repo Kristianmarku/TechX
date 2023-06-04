@@ -27,9 +27,9 @@
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
-                            <label>Price</label>
-                            <input name="price" type="number" step="any" class="form-control" placeholder="Price" value="{{ $product->price ?? '-' }}" />
-                            @error('price')
+                            <label>Quantity</label>
+                            <input name="quantity" type="number" class="form-control" placeholder="Quantity" value="{{ $product->quantity ?? '-' }}" autocomplete="on" />
+                            @error('quantity')
                               <p class="text-danger p-2">{{ $message }}</p>
                             @enderror
                           </div>
@@ -38,13 +38,14 @@
                       <div class="row">
                         <div class="col-md-6">
                           <div class="form-group">
-                            <label>Quantity</label>
-                            <input name="quantity" type="number" class="form-control" placeholder="Quantity" value="{{ $product->quantity ?? '-' }}" autocomplete="on" />
-                            @error('quantity')
+                            <label>Price</label>
+                            <input name="price" type="number" step="any" class="form-control" placeholder="Price" value="{{ $product->price ?? '-' }}" />
+                            @error('price')
                               <p class="text-danger p-2">{{ $message }}</p>
                             @enderror
                           </div>
                         </div>
+           
                         <div class="col-md-6">
                           <div class="form-group">
                             <label>Category</label>
@@ -72,12 +73,12 @@
                           </div>
                         </div>
                         <div class="col-md-6">
-                            <label>Thumbnail Image</label>
-                            <p>Current Image: {{ $product->cover_image }}</p>
-                            <input name="cover_image" type="file" class="form-control border-0"/>
-                            @error('cover_image')
-                              <p class="text-danger p-2">{{ $message }}</p>
-                            @enderror
+                          <label class="btn btn-info text-light" for="cover_image">Upload Image</label>
+                          <p>Current Image: {{ $product->cover_image }}</p>
+                          <input name="cover_image" id="cover_image" type="file" class="form-control border-0" style="display: none"/>
+                          @error('cover_image')
+                            <p class="text-danger p-2">{{ $message }}</p>
+                          @enderror
                         </div>
                       </div>
                       <div class="row">
