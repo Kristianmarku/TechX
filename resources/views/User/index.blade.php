@@ -93,52 +93,52 @@
         <div class="col-lg-3 col-md-6">
           <div class="item">
             <div class="thumb">
-              <a href="{{route('product.details')}}"><img src="{{ asset('images/trending-01.jpg') }}" alt=""></a>
+              <a href="#"><img src="{{ asset('images/trending-01.jpg') }}" alt=""></a>
               <span class="price"><em>$28</em>$20</span>
             </div>
             <div class="down-content">
               <span class="category">Action</span>
               <h4>Warframe</h4>
-              <a href="{{route('product.details')}}"><i class="fa fa-shopping-bag"></i></a>
+              <a href="#"><i class="fa fa-shopping-bag"></i></a>
             </div>
           </div>
         </div>
         <div class="col-lg-3 col-md-6">
           <div class="item">
             <div class="thumb">
-              <a href="{{route('product.details')}}"><img src="{{ asset('images/trending-02.jpg') }}" alt=""></a>
+              <a href="#"><img src="{{ asset('images/trending-02.jpg') }}" alt=""></a>
               <span class="price">$44</span>
             </div>
             <div class="down-content">
               <span class="category">Action</span>
               <h4>Tower of Fantasy</h4>
-              <a href="{{route('product.details')}}"><i class="fa fa-shopping-bag"></i></a>
+              <a href="#"><i class="fa fa-shopping-bag"></i></a>
             </div>
           </div>
         </div>
         <div class="col-lg-3 col-md-6">
           <div class="item">
             <div class="thumb">
-              <a href="{{route('product.details')}}"><img src="{{ asset('images/trending-03.jpg') }}" alt=""></a>
+              <a href="#"><img src="{{ asset('images/trending-03.jpg') }}" alt=""></a>
               <span class="price"><em>$64</em>$44</span>
             </div>
             <div class="down-content">
               <span class="category">Action</span>
               <h4>Super People</h4>
-              <a href="{{route('product.details')}}"><i class="fa fa-shopping-bag"></i></a>
+              <a href="#"><i class="fa fa-shopping-bag"></i></a>
             </div>
           </div>
         </div>
         <div class="col-lg-3 col-md-6">
           <div class="item">
             <div class="thumb">
-              <a href="{{route('product.details')}}"><img src="{{ asset('images/trending-04.jpg') }}" alt=""></a>
+              <a href="#"><img src="{{ asset('images/trending-04.jpg') }}" alt=""></a>
               <span class="price">$32</span>
             </div>
             <div class="down-content">
               <span class="category">Action</span>
               <h4>Quantum Fury</h4>
-              <a href="{{route('product.details')}}"><i class="fa fa-shopping-bag"></i></a>
+              <a href="#"><i class="fa fa-shopping-bag"></i></a>
             </div>
           </div>
         </div>
@@ -163,72 +163,72 @@
         <div class="col-lg-2 col-md-6 col-sm-6">
           <div class="item">
             <div class="thumb">
-              <a href="{{route('product.details')}}"><img src="{{ asset('images/top-game-01.jpg') }}" alt=""></a>
+              <a href="#"><img src="{{ asset('images/top-game-01.jpg') }}" alt=""></a>
             </div>
             <div class="down-content">
                 <span class="category">Adventure</span>
                 <h4>Warframe</h4>
-                <a href="{{route('product.details')}}">Explore</a>
+                <a href="#">Explore</a>
             </div>
           </div>
         </div>
         <div class="col-lg-2 col-md-6 col-sm-6">
           <div class="item">
             <div class="thumb">
-              <a href="{{route('product.details')}}"><img src="{{ asset('images/top-game-02.jpg') }}" alt=""></a>
+              <a href="#"><img src="{{ asset('images/top-game-02.jpg') }}" alt=""></a>
             </div>
             <div class="down-content">
                 <span class="category">Adventure</span>
                 <h4>PUBG</h4>
-                <a href="{{route('product.details')}}">Explore</a>
+                <a href="#">Explore</a>
             </div>
           </div>
         </div>
         <div class="col-lg-2 col-md-6 col-sm-6">
           <div class="item">
             <div class="thumb">
-              <a href="{{route('product.details')}}"><img src="{{ asset('images/top-game-03.jpg') }}" alt=""></a>
+              <a href="#"><img src="{{ asset('images/top-game-03.jpg') }}" alt=""></a>
             </div>
             <div class="down-content">
                 <span class="category">Adventure</span>
                 <h4>Apex Legends</h4>
-                <a href="{{route('product.details')}}">Explore</a>
+                <a href="#">Explore</a>
             </div>
           </div>
         </div>
         <div class="col-lg-2 col-md-6 col-sm-6">
           <div class="item">
             <div class="thumb">
-              <a href="{{route('product.details')}}"><img src="{{ asset('images/top-game-04.jpg') }}" alt=""></a>
+              <a href="#"><img src="{{ asset('images/top-game-04.jpg') }}" alt=""></a>
             </div>
             <div class="down-content">
                 <span class="category">Adventure</span>
                 <h4>The Sims 4</h4>
-                <a href="{{route('product.details')}}">Explore</a>
+                <a href="#">Explore</a>
             </div>
           </div>
         </div>
         <div class="col-lg-2 col-md-6 col-sm-6">
           <div class="item">
             <div class="thumb">
-              <a href="{{route('product.details')}}"><img src="{{ asset('images/top-game-05.jpg') }}" alt=""></a>
+              <a href="#"><img src="{{ asset('images/top-game-05.jpg') }}" alt=""></a>
             </div>
             <div class="down-content">
                 <span class="category">Adventure</span>
                 <h4>Lostark</h4>
-                <a href="{{route('product.details')}}">Explore</a>
+                <a href="#">Explore</a>
             </div>
           </div>
         </div>
         <div class="col-lg-2 col-md-6 col-sm-6">
           <div class="item">
             <div class="thumb">
-              <a href="{{route('product.details')}}"><img src="{{ asset('images/top-game-06.jpg') }}" alt=""></a>
+              <a href="#"><img src="{{ asset('images/top-game-06.jpg') }}" alt=""></a>
             </div>
             <div class="down-content">
                 <span class="category">Adventure</span>
                 <h4>Destiny 2</h4>
-                <a href="{{route('product.details')}}">Explore</a>
+                <a href="#">Explore</a>
             </div>
           </div>
         </div>
@@ -249,7 +249,7 @@
           <div class="item">
             <h4>Action</h4>
             <div class="thumb">
-              <a href="{{route('product.details')}}"><img src="{{ asset('images/categories-01.jpg') }}" alt=""></a>
+              <a href="#"><img src="{{ asset('images/categories-01.jpg') }}" alt=""></a>
             </div>
           </div>
         </div>
@@ -257,7 +257,7 @@
           <div class="item">
             <h4>Adventure</h4>
             <div class="thumb">
-              <a href="{{route('product.details')}}"><img src="{{ asset('images/categories-05.jpg') }}" alt=""></a>
+              <a href="#"><img src="{{ asset('images/categories-05.jpg') }}" alt=""></a>
             </div>
           </div>
         </div>
@@ -265,7 +265,7 @@
           <div class="item">
             <h4>Sports</h4>
             <div class="thumb">
-              <a href="{{route('product.details')}}"><img src="{{ asset('images/categories-03.jpg') }}" alt=""></a>
+              <a href="#"><img src="{{ asset('images/categories-03.jpg') }}" alt=""></a>
             </div>
           </div>
         </div>
@@ -273,7 +273,7 @@
           <div class="item">
             <h4>Strategy</h4>
             <div class="thumb">
-              <a href="{{route('product.details')}}"><img src="{{ asset('images/categories-04.jpg') }}" alt=""></a>
+              <a href="#"><img src="{{ asset('images/categories-04.jpg') }}" alt=""></a>
             </div>
           </div>
         </div>
@@ -281,7 +281,7 @@
           <div class="item">
             <h4>Simulation</h4>
             <div class="thumb">
-              <a href="{{route('product.details')}}"><img src="{{ asset('images/categories-05.jpg') }}" alt=""></a>
+              <a href="#"><img src="{{ asset('images/categories-05.jpg') }}" alt=""></a>
             </div>
           </div>
         </div>

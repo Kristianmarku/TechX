@@ -74,7 +74,8 @@
         </div>
       </div>
     </div>
-    @push('scripts')
+    
+  @push('scripts')
     <script>
       function confirmDelete(userId) {
         const swalWithBootstrapButtons = Swal.mixin({

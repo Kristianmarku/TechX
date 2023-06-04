@@ -57,7 +57,6 @@
                     <ul class="nav">
                       <li><a href="{{ route('home') }}" class="{{ request()->is('home') ? 'active' : '' }}">Home</a></li>
                       <li><a href="{{ route('shop') }}" class="{{ request()->is('shop') ? 'active' : '' }}" >Our Shop</a></li>
-                      <li><a href="{{ route('product.details') }}" class="{{ request()->is('product*') ? 'active' : '' }}">Product Details</a></li>
                       <li><a href="{{ route('contact') }}" class="{{ request()->is('contact') ? 'active' : '' }}">Contact Us</a></li>
                       
                       

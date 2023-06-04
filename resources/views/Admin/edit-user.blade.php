@@ -19,7 +19,7 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <label>Firstname</label>
-                            <input name="firstname" type="text" class="form-control" placeholder="First Name" value="{{ $user->firstname }}" autocomplete="on" />
+                            <input name="firstname" type="text" class="form-control" placeholder="First Name" value="{{ $user->firstname ?? '-' }}" autocomplete="on" />
                              @error('firstname')
                               <p class="text-danger p-2">{{ $message }}</p>
                             @enderror
@@ -28,7 +28,7 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <label>Last Name</label>
-                            <input name="lastname" type="text" class="form-control" placeholder="Last Name" value="{{ $user->lastname }}" />
+                            <input name="lastname" type="text" class="form-control" placeholder="Last Name" value="{{ $user->lastname ?? '-' }}" />
                              @error('lastname')
                               <p class="text-danger p-2">{{ $message }}</p>
                             @enderror
@@ -39,7 +39,7 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <label>E-mail address</label>
-                            <input name="email" type="text" class="form-control" placeholder="E-mail" value="{{ $user->email }}" />
+                            <input name="email" type="text" class="form-control" placeholder="E-mail" value="{{ $user->email ?? '-' }}" />
                              @error('email')
                               <p class="text-danger p-2">{{ $message }}</p>
                             @enderror
@@ -48,7 +48,7 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <label>Phone</label>
-                            <input name="phone" type="text" class="form-control" placeholder="Phone" value="{{ $user->phone }}" />
+                            <input name="phone" type="text" class="form-control" placeholder="Phone" value="{{ $user->phone ?? '-' }}" />
                              @error('phone')
                               <p class="text-danger p-2">{{ $message }}</p>
                             @enderror
@@ -59,7 +59,7 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <label>State</label>
-                            <input name="state" type="text" class="form-control" placeholder="State" value="{{ $user->address->state }}" />
+                            <input name="state" type="text" class="form-control" placeholder="State" value="{{ $user->address->state ?? '-' }}" />
                             @error('state')
                             <p class="text-danger p-2">{{ $message }}</p>
                           @enderror
@@ -68,7 +68,7 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <label>Country</label>
-                            <input name="country" type="text" class="form-control" placeholder="Country" value="{{ $user->address->country }}" />
+                            <input name="country" type="text" class="form-control" placeholder="Country" value="{{ $user->address->country ?? '-' }}" />
                             @error('country')
                             <p class="text-danger p-2">{{ $message }}</p>
                           @enderror
@@ -79,7 +79,7 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <label>City</label>
-                            <input name="city" type="text" class="form-control" placeholder="City" value="{{ $user->address->city }}" />
+                            <input name="city" type="text" class="form-control" placeholder="City" value="{{ $user->address->city ?? '-' }}" />
                             @error('city')
                             <p class="text-danger p-2">{{ $message }}</p>
                           @enderror
@@ -88,7 +88,7 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <label>First Address</label>
-                            <input name="address" type="text" class="form-control" placeholder="First address" value="{{ $user->address->address }}" />
+                            <input name="address" type="text" class="form-control" placeholder="First address" value="{{ $user->address->address ?? '-' }}" />
                             @error('address')
                             <p class="text-danger p-2">{{ $message }}</p>
                           @enderror
@@ -99,7 +99,7 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <label>Second Address</label>
-                            <input name="address_second" type="text" class="form-control" placeholder="Second address" value="{{ $user->address->address_second }}" />
+                            <input name="address_second" type="text" class="form-control" placeholder="Second address" value="{{ $user->address->address_second ?? '-' }}" />
                             @error('address_second')
                               <p class="text-danger p-2">{{ $message }}</p>
                             @enderror
@@ -108,7 +108,7 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <label>Zip Code</label>
-                            <input name="zip_code" type="text" class="form-control" placeholder="Zip Code" value="{{ $user->address->zip_code }}" />
+                            <input name="zip_code" type="text" class="form-control" placeholder="Zip Code" value="{{ $user->address->zip_code ?? '-' }}" />
                             @error('zip_code')
                               <p class="text-danger p-2">{{ $message }}</p>
                             @enderror

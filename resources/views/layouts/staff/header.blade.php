@@ -52,7 +52,7 @@
             @endif 
 
             @if(Auth::user()->hasRole('Manager'))
-            <li class="{{ request()->is('products') ? 'active' : '' }}">
+            <li class="{{ request()->is('products*') ? 'active' : '' }}">
               <a href="{{route('products')}}">
                 <i class="now-ui-icons shopping_bag-16"></i>
                 <p>Products</p>
@@ -99,9 +99,9 @@
             </button>
           </div>
           @if(request()->route()->getName() !== 'home')
-            <a href="{{ route('home') }}" class="btn btn-primary">
+            <a href="{{ url()->previous() }}" class="btn btn-primary">
               <i class="fa-solid fa-arrow-left"></i> 
-              Go back
+              Previous Page
             </a>
           @endif
         </div>

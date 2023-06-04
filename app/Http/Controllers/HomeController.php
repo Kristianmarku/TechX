@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -58,7 +59,8 @@ class HomeController extends Controller
         return view('user.index');
     }
     public function shop() : Renderable {
-        return view('user.shop');
+        $products = Product::all();
+        return view('user.shop', compact('products'));
     }
     public function productDetails() : Renderable {
         return view('user.product-details');

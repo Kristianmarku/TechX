@@ -27,7 +27,7 @@
                   <div class="row">
                     <div class="col-lg-6">
                       <fieldset>
-                        <input type="text" name="firstname" placeholder="First Name" value="{{ $user->firstname }}" autocomplete="on">
+                        <input type="text" name="firstname" placeholder="First Name" value="{{ $user->firstname ?? '-' }}" autocomplete="on">
                           @error('firstname')
                                 <div class="error-messages"><p>{{ $message }}</p></div>
                             @enderror
@@ -35,7 +35,7 @@
                     </div>
                     <div class="col-lg-6">
                       <fieldset>
-                        <input type="text" name="lastname" placeholder="Last Name" value="{{ $user->lastname }}" autocomplete="on">
+                        <input type="text" name="lastname" placeholder="Last Name" value="{{ $user->lastname ?? '-' }}" autocomplete="on">
                           @error('lastname')
                                 <div class="error-messages"><p>{{ $message }}</p></div>
                             @enderror
@@ -43,7 +43,7 @@
                     </div>
                     <div class="col-lg-6">
                         <fieldset>
-                          <input type="text" name="email" pattern="[^ @]*@[^ @]*" placeholder="E-mail" value="{{ $user->email }}">
+                          <input type="text" name="email" pattern="[^ @]*@[^ @]*" placeholder="E-mail" value="{{ $user->email ?? '-' }}">
                             @error('email')
                                 <div class="error-messages"><p>{{ $message }}</p></div>
                             @enderror
@@ -51,7 +51,7 @@
                     </div>
                     <div class="col-lg-6">
                         <fieldset>
-                          <input type="text" name="phone" placeholder="Phone" value="{{ $user->phone }}" autocomplete="on">
+                          <input type="text" name="phone" placeholder="Phone" value="{{ $user->phone ?? '-' }}" autocomplete="on">
                             @error('phone')
                                 <div class="error-messages"><p>{{ $message }}</p></div>
                             @enderror
@@ -59,7 +59,7 @@
                     </div>
                     <div class="col-lg-6">
                       <fieldset>
-                        <input type="text" name="address" placeholder="Address 1" value="{{ $user->address->address }}" autocomplete="on">
+                        <input type="text" name="address" placeholder="Address 1" value="{{ $user->address->address ?? '-' }}" autocomplete="on">
                           @error('address')
                                 <div class="error-messages"><p>{{ $message }}</p></div>
                             @enderror
@@ -67,7 +67,7 @@
                     </div>
                     <div class="col-lg-6">
                         <fieldset>
-                          <input type="text" name="address_second" placeholder="Address 2" value="{{ $user->address->address_second }}" autocomplete="on">
+                          <input type="text" name="address_second" placeholder="Address 2" value="{{ $user->address->address_second ?? '-' }}" autocomplete="on">
                             @error('address_second')
                                 <div class="error-messages"><p>{{ $message }}</p></div>
                             @enderror
@@ -75,7 +75,7 @@
                     </div>
                     <div class="col-lg-6">
                         <fieldset>
-                          <input type="text" name="state" placeholder="State" value="{{ $user->address->state }}" autocomplete="on">
+                          <input type="text" name="state" placeholder="State" value="{{ $user->address->state ?? '-' }}" autocomplete="on">
                             @error('state')
                                 <div class="error-messages"><p>{{ $message }}</p></div>
                             @enderror
@@ -83,7 +83,7 @@
                     </div>
                     <div class="col-lg-6">
                         <fieldset>
-                          <input type="text" name="country" placeholder="Country" value="{{ $user->address->country }}" autocomplete="on">
+                          <input type="text" name="country" placeholder="Country" value="{{ $user->address->country ?? '-' }}" autocomplete="on">
                             @error('country')
                                 <div class="error-messages"><p>{{ $message }}</p></div>
                             @enderror
@@ -91,7 +91,7 @@
                     </div>
                     <div class="col-lg-6">
                         <fieldset>
-                          <input type="text" name="city" placeholder="City" value="{{ $user->address->city }}" autocomplete="on">
+                          <input type="text" name="city" placeholder="City" value="{{ $user->address->city ?? '-' }}" autocomplete="on">
                             @error('city')
                                 <div class="error-messages"><p>{{ $message }}</p></div>
                             @enderror
@@ -99,7 +99,7 @@
                     </div>
                     <div class="col-lg-6">
                         <fieldset>
-                          <input type="text" name="zip_code" placeholder="Zip Code" value="{{ $user->address->zip_code }}" autocomplete="on">
+                          <input type="text" name="zip_code" placeholder="Zip Code" value="{{ $user->address->zip_code ?? '-' }}" autocomplete="on">
                             @error('zip_code')
                                 <div class="error-messages"><p>{{ $message }}</p></div>
                             @enderror

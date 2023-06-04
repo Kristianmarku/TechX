@@ -46,6 +46,7 @@ Route::middleware(['auth'])->group(function(){
     
     /* Admin Only */
     Route::middleware(['admin.view'])->group(function(){
+        /* User Data */
         Route::get('/user/edit/{id}', [AdminController::class, 'editUser'])->name('edit.user');
         Route::post('/user/edit/{id}', [AdminController::class, 'update'])->name('update.user.profile');
         Route::post('/user/update-password/{id}', [AdminController::class, 'updatePassword'])->name('update.user.password');
@@ -54,7 +55,13 @@ Route::middleware(['auth'])->group(function(){
 
     /* Manager Only */
     Route::middleware(['manager.view'])->group(function(){
+        /* Products */
         Route::get('/products', [ProductController::class, 'index'])->name('products'); 
+        Route::post('/products', [ProductController::class, 'create'])->name('add.product');
+        Route::delete('/products/{id}', [ProductController::class, 'delete'])->name('delete.product');
+        Route::get('/products/edit/{id}', [ProductController::class, 'edit'])->name('edit.product');
+        Route::post('/products/edit/{id}', [ProductController::class, 'update'])->name('update.product');
+
         Route::get('/categories', [CategoryController::class, 'index'])->name('categories'); 
         Route::get('/sales', [SaleController::class, 'index'])->name('sales'); 
     });
@@ -68,8 +75,6 @@ Route::middleware(['auth'])->group(function(){
 
     /* Support Only */
     Route::middleware(['support.view'])->group(function(){
-        // Route::get('/asd', [SupportController::class, ''])->name('');
-        // Route::get('/asda', [SupportController::class, ''])->name(''); 
         Route::get('/issues', [IssueController::class, 'index'])->name('issues'); 
         Route::get('/issues/view/', [IssueController::class, 'viewIssuePage'])->name('view.issue'); 
     });
@@ -81,7 +86,7 @@ Route::middleware(['auth'])->group(function(){
 
 /* Customers */
 Route::get('/shop', [HomeController::class, 'shop'])->name('shop'); // change to its own controller 
-Route::get('/product/id', [ProductController::class, 'productDetails'])->name('product.details');
+Route::get('/product/{id}', [ProductController::class, 'productDetails'])->name('product.details');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact'); // change to its own controller 
 
 /* All */
