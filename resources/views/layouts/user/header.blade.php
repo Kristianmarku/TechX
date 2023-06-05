@@ -9,6 +9,9 @@
 
     <title>TechX - @yield('title')</title>
 
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('images/techxLogoWhite.svg') }}"/>
+    <link rel="icon" href="{{ asset('images/techxLogoWhite.svg') }}" type="image/x-icon">
+
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 

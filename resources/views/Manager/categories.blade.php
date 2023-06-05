@@ -36,7 +36,7 @@
                         <label for="name">Name</label>
                         <input name="name" type="text" class="form-control" placeholder="Category name" value="{{ old('name') }}"/>
                         @error('name')
-                          <p class="text-danger">{{ $message }}</p>
+                          <p class="text-danger p-2">{{ $message }}</p>
                         @enderror 
                       </div>
                     </div>
@@ -45,7 +45,7 @@
                         <label for="description">Description</label>
                         <textarea name="description" class="form-control" cols="30" rows="10" placeholder="Category description..." value="{{ old('description') }}"></textarea>
                         @error('description')
-                          <p class="text-danger">{{ $message }}</p>
+                          <p class="text-danger p-2">{{ $message }}</p>
                         @enderror 
                       </div>
                     </div>

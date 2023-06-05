@@ -18,7 +18,7 @@ class ManagerView
     public function handle(Request $request, Closure $next)
     {
         // Check if the user is authenticated and is a Manager
-        if ($request->user() && $request->user()->hasRole('Manager')) {
+        if ($request->user() && ($request->user()->hasRole('Manager') || $request->user()->hasRole('Admin'))) {
             // User is authenticated and is an admin, proceed.
             return $next($request);
         }

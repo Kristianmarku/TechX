@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Support\Facades\Facade;
@@ -69,7 +70,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Europe/Tirane',
 
     /*
     |--------------------------------------------------------------------------

@@ -18,7 +18,7 @@ class SupportView
     public function handle(Request $request, Closure $next)
     {
         // Check if the user is authenticated and is an admin
-        if ($request->user() && $request->user()->hasRole('Support')) {
+        if ($request->user() && ($request->user()->hasRole('Support') || $request->user()->hasRole('Admin')) ) {
             // User is authenticated and is an admin, proceed.
             return $next($request);
         }

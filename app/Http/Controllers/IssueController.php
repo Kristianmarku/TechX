@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Issue;
+use App\Models\IssueReply;
+use Illuminate\Validation\ValidationException;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class IssueController extends Controller
 {
@@ -14,21 +18,46 @@ class IssueController extends Controller
      */
     public function index() : Renderable
     {
-        return view('admin.issues');
+        $issues = Issue::orderBy('created_at', 'desc')->get();
+        return view('support.issues', compact('issues'));
     }
 
-    public function viewIssuePage() : Renderable {
-        return view('admin.view-issue');
+    public function viewIssuePage($id) : Renderable {
+        $issue = Issue::findOrFail($id);
+        return view('support.view-issue', compact('issue'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        try {
+            $validatedData = $request->validate([
+                'title' => 'required',
+                'description' => 'required'
+            ]);
+
+            Issue::create([
+                'user_id' => Auth::id(),
+                'title' => $validatedData['title'],
+                'description' => $validatedData['description'],
+                'status' => 'New',
+                'priority' => 'Medium'
+            ]);
+
+            return redirect()->back()->with('success', 'Issue reported.');
+
+        } catch (ValidationException $e) {
+            $errors = $e->validator->errors()->all();
+            
+            foreach ($errors as $error) {
+                toastr()->error($error);
+            }
+            return redirect()->back();
+        }
     }
 
     /**
@@ -80,10 +109,11 @@ class IssueController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy($id)
+    public function deleteReply($id)
     {
-        //
+        IssueReply::findOrFail($id)->delete();
+        return redirect()->back()->with('success', 'Comment deleted');
     }
 }

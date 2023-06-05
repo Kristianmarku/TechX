@@ -52,9 +52,14 @@
             </div>
           </div>
         @empty 
-          <p>No products available</p>
+          <div class="card text-danger" style="border: none; text-align:center;">
+            <div class="card-header">
+              There aren't any products available at the moment. Please check back later!
+            </div>
+          </div>
         @endforelse 
       </div>
+      
       <div class="row">
         <div class="col-lg-12">
           <ul class="pagination">

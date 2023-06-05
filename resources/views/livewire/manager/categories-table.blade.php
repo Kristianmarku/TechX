@@ -27,7 +27,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td><p class="text-danger">No data available</p></td>    
+                    <td colspan="3"><p class="text-danger">No data available</p></td>    
                 </tr>                
             @endforelse
           </tbody>

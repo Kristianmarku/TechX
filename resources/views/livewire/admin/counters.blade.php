@@ -1,5 +1,5 @@
 <div class="row ml-3">
-    <div class="col-md-2">
+    <div class="col-md-3">
       <a href="#">
         <div class="card">
           <div class="card-header text-center">

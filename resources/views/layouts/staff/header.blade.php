@@ -2,17 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/apple-icon.png') }}"/>
-    <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon.png') }}" />
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('images/techxLogoWhite.svg') }}"/>
+    <link rel="icon" href="{{ asset('images/techxLogoWhite.svg') }}" type="image/x-icon">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>TechX - @yield('title')</title>
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no" name="viewport"/>
-    <!--     Fonts and icons     -->
+    <!--Fonts and icons-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" referrerpolicy="no-referrer" />
     <!-- CSS Files -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/now-ui-dashboard.css?v=1.5.0') }}" rel="stylesheet" />
+
+    <!-- Toastr -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
     @livewireStyles
   </head>
@@ -42,7 +45,7 @@
               </a>
             </li>
 
-            @if(Auth::user()->hasRole('Support'))
+            @if(Auth::user()->hasRole('Support') || Auth::user()->hasRole('Admin'))
               <li class="{{ request()->is('issues*') ? 'active' : '' }}">
                 <a href="{{ route('issues') }}">
                   <i class="now-ui-icons tech_headphones"></i>
@@ -51,7 +54,7 @@
               </li>
             @endif 
 
-            @if(Auth::user()->hasRole('Manager'))
+            @if(Auth::user()->hasRole('Manager') || Auth::user()->hasRole('Admin'))
             <li class="{{ request()->is('products*') ? 'active' : '' }}">
               <a href="{{route('products')}}">
                 <i class="now-ui-icons shopping_bag-16"></i>
@@ -98,12 +101,7 @@
               <span class="navbar-toggler-bar bar3"></span>
             </button>
           </div>
-          @if(request()->route()->getName() !== 'home')
-            <a href="{{ url()->previous() }}" class="btn btn-primary">
-              <i class="fa-solid fa-arrow-left"></i> 
-              Previous Page
-            </a>
-          @endif
+          {{-- Headline here maybe? --}}
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation" >
           <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -111,21 +109,6 @@
           <span class="navbar-toggler-bar navbar-kebab"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navigation" >
-          <form>
-            <div class="input-group no-border">
-              <input
-                type="text"
-                value=""
-                class="form-control"
-                placeholder="Search..."
-              />
-              <div class="input-group-append">
-                <div class="input-group-text">
-                  <i class="now-ui-icons ui-1_zoom-bold"></i>
-                </div>
-              </div>
-            </div>
-          </form>
           <ul class="navbar-nav">
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >

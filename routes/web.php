@@ -12,6 +12,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SupportController;
 use App\Http\Controllers\AdminController;
+use App\Http\Livewire\Support\ViewIssue;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,6 +74,9 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/sales', [SaleController::class, 'index'])->name('sales'); 
         Route::post('/sales', [SaleController::class, 'create'])->name('add.sale');
         Route::delete('/sales/{id}', [SaleController::class, 'delete'])->name('delete.sale');
+
+        /* Issue Report */
+        Route::post('/report-issue', [IssueController::class, 'create'])->name('add.issue'); 
     });
 
     /* Authenticated Customers Only */
@@ -82,10 +86,13 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/my-orders', [OrderController::class, 'index'])->name('myorders'); 
     });
 
-    /* Support Only */
+    /* Support & Admin */
     Route::middleware(['support.view'])->group(function(){
+        /* Issues */
         Route::get('/issues', [IssueController::class, 'index'])->name('issues'); 
-        Route::get('/issues/view/', [IssueController::class, 'viewIssuePage'])->name('view.issue'); 
+        // Route::get('/issues/view/{id}', [ViewIssue::class, 'mount'])->name('view.issue'); 
+        Route::get('/issues/view/{id}', [IssueController::class, 'viewIssuePage'])->name('view.issue'); 
+        Route::delete('/issues/view/delete/{id}', [IssueController::class, 'deleteReply'])->name('delete.reply'); 
     });
 
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile'); 
