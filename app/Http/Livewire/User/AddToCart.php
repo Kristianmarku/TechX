@@ -28,10 +28,10 @@ class AddToCart extends Component
             toastr()->error('Unauthorized.');
             return;
         }
-    
+
         $user = User::findOrFail(Auth::id());
         $cart = $user->cart;
-    
+
         // Check if user has a cart
         if ($user->cart()->exists()) {
             $cart = $user->cart;
@@ -40,12 +40,16 @@ class AddToCart extends Component
             $cart = new Cart();
             $user->cart()->save($cart);
         }
-    
+
         // Check if the product already exists in the cart
         $existingProduct = $cart->products()->where('product_id', $this->product->id)->first();
-    
-        $quantity = request('quantity') ?: 1;
-    
+
+        $quantity = $this->quantity ?: 1;
+        if ($quantity > 50) {
+            toastr()->error('Quantity out of stock');
+            return;
+        }
+
         if ($existingProduct) {
             // Update the quantity of the existing product
             $cart->products()->updateExistingPivot($this->product->id, [
@@ -58,18 +62,18 @@ class AddToCart extends Component
                 toastr()->error('Quantity out of stock!');
                 return;
             }
-    
+
             $cart->products()->attach($product, ['quantity' => $quantity]);
         }
-    
+
         toastr()->success('Product added to cart.');
         // Emit an event to update the cart 
         $this->emit('cartUpdated');
-    
+
         // Reset the quantity property
         $this->quantity = 1;
     }
-    
+
 
     public function render()
     {
