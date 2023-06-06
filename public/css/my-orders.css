@@ -1,15 +1,15 @@
 .container-abf {
     display: flex;
     background-color: rgb(255, 255, 255);
-    box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.151);
-    padding: 3rem 0rem;
+    /* box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.151); */
+    /* padding: 3rem 0rem; */
     justify-content: center;
     align-items: center;
     flex-direction: column;
     justify-content: center;
     border-radius: 6px;
     width: 100%;
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
 }
 
 .progresBar-abf {
@@ -21,8 +21,17 @@
     height: 0.7rem;
     border-radius: 6px;
     margin: 0.5rem 0;
-    background-color: #eee;
     border: none;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+}
+
+progress::-webkit-progress-value {
+    background-color: #4ff454;
+    border-radius: 10px;
 }
 
 .progres-text-abf {
@@ -43,8 +52,15 @@
     margin: 0.5rem 0;
     padding: 0.6rem 1rem;
     box-shadow: 0 10px 20px -2px rgba(0, 0, 0, 0.266);
-    margin-bottom: 45px;
     border-radius: 6px;
+    transition: 0.3s ease-in-out;
+}
+
+.item-abf:hover {
+    transform: scale(1.09);
+    box-shadow: 0 10px 20px -2px rgba(0, 0, 0, 0.266),
+        inset 0px -200px 0px rgba(251, 134, 95, 0.131);
+    cursor: pointer;
 }
 
 /*section S*/

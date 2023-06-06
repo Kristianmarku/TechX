@@ -33,7 +33,7 @@
                     @csrf 
                     <div class="row mb-2">
                       <div class="col-md-4">
-                        <label for="product_id">Product ID</label>
+                        <label for="product_id">Product ID <span class="text-danger font-weight-bold">*</span></label>
                         <input name="product_id" type="text" class="form-control" placeholder="#" />
                         @error('product_id')
                           <p class="text-danger p-2">{{ $message }}</p>
@@ -41,7 +41,7 @@
                       </div>
   
                       <div class="col-md-4">
-                        <label for="sale_price">Sale Price</label>
+                        <label for="sale_price">Sale Price <span class="text-danger font-weight-bold">*</span></label>
                         <input name="sale_price" type="number" step="any" class="form-control" placeholder="€" />
                         @error('sale_price')
                           <p class="text-danger p-2">{{ $message }}</p>
@@ -50,7 +50,7 @@
                     </div>
                     <div class="row mb-2">
                       <div class="col-md-4">
-                        <label for="start_date">From</label>
+                        <label for="start_date">From <span class="text-danger font-weight-bold">*</span></label>
                         <input name="start_date" id="start_date" type="date" class="form-control" />
                         @error('start_date')
                           <p class="text-danger p-2">{{ $message }}</p>
@@ -58,7 +58,7 @@
                       </div>
   
                       <div class="col-md-4">
-                        <label for="end_date">To</label>
+                        <label for="end_date">To <span class="text-danger font-weight-bold">*</span></label>
                         <input name="end_date" id="end_date" type="date" class="form-control" />
                         @error('end_date')
                           <p class="text-danger p-2">{{ $message }}</p>

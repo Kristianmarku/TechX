@@ -18,7 +18,7 @@
                       <div class="card-body">
                         <div class="row mb-4">
                           <div class="col-md-4">
-                            <label for="name">Product Name</label>
+                            <label for="name">Product Name <span class="text-danger font-weight-bold">*</span> </label>
                             <input name="name" class="form-control" type="text" placeholder="Name" value="{{ old('name') }}"/>
                             @error('name')
                               <p class="text-danger p-2">{{ $message }}</p>
@@ -26,7 +26,7 @@
                           </div>
 
                           <div class="col-md-2">
-                            <label for="quantity">Quantity</label>
+                            <label for="quantity">Quantity <span class="text-danger font-weight-bold">*</span> </label>
                             <input name="quantity" class="form-control" type="number" placeholder="Quantity" value="{{ old('quantity') }}"/>
                             @error('quantity')
                               <p class="text-danger p-2">{{ $message }}</p>
@@ -36,7 +36,7 @@
 
                         <div class="row mb-4">
                           <div class="col-md-2">
-                            <label for="price">Price</label>
+                            <label for="price">Price <span class="text-danger font-weight-bold">*</span> </label>
                             <input name="price" type="number" step="any" class="form-control" placeholder="Price" value="{{ old('price') }}"/>
                             @error('price')
                               <p class="text-danger p-2">{{ $message }}</p>
@@ -44,7 +44,7 @@
                           </div>
 
                           <div class="col-md-2">
-                            <label for="category_id">Category</label>
+                            <label for="category_id">Category <span class="text-danger font-weight-bold">*</span> </label>
                             <select class="form-control" name="category_id">
                               <option disabled selected>Uncategorized</option>
                               @forelse ($categories as $cat)
@@ -70,7 +70,7 @@
 
                         <div class="row mb-4">
                           <div class="col-md-4">
-                            <label for="description">Description</label>
+                            <label for="description">Description <span class="text-danger font-weight-bold">*</span> </label>
                             <textarea name="description" class="form-control" placeholder="Write product information and details" cols="30" rows="10">{{ old('description') }}</textarea>
                             @error('description')
                               <p class="text-danger p-2">{{ $message }}</p>

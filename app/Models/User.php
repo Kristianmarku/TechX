@@ -66,4 +66,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(IssueReply::class, 'support_id');
     }
+
+    public function cart()
+    {
+        return $this->hasOne(Cart::class);
+    }
 }

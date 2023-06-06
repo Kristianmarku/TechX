@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class ORderController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,17 +16,24 @@ class ORderController extends Controller
      */
     public function index(): Renderable
     {
-        return view('user.my-orders');
+        // Retrieve the authenticated user
+        $user = Auth::user();
+
+        // Retrieve orders for the authenticated user
+        $orders = Order::where('user_id', $user->id)->get();
+        return view('user.my-orders', compact('orders'));
     }
 
+    
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function viewOrder($id) : Renderable
     {
-        //
+        $order = Order::findOrFail($id);
+        return view('user.view-order', compact('order'));
     }
 
     /**
@@ -76,10 +85,11 @@ class ORderController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        Order::findOrFail($id)->delete();
+        return to_route('myorders')->with('success', 'Order cancelled.');
     }
 }

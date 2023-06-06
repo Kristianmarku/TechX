@@ -1399,7 +1399,7 @@ Single Page Style
     margin-bottom: 60px;
 }
 
-.single-product form input {
+.single-product input {
     width: 80px;
     height: 50px;
     background-color: #f7f7f7;
@@ -1414,7 +1414,7 @@ Single Page Style
     display: inline;
 }
 
-.single-product form button {
+.add-to-cart-button {
     display: inline-block;
     height: 50px;
     line-height: 50px;
@@ -1427,6 +1427,52 @@ Single Page Style
     border: none;
     border-radius: 25px;
     transition: all 0.3s;
+    box-shadow: inset 0px 0px 0px #f96332;
+    position: relative; /* Added positioning for pseudo-elements */
+}
+
+.add-to-cart-button:hover {
+    background-color: #f96332;
+    box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 0.3);
+}
+
+.add-to-cart-button:active {
+    transform: scale(0.95);
+}
+
+.add-to-cart-button:hover i::before {
+    content: "\f067"; /* FontAwesome plus icon */
+}
+
+.open-btn {
+    padding: 10px;
+    width: 100px;
+    border: none;
+    border-radius: 20px;
+    background: #121212;
+    color: #fff;
+    transition: all 0.3s;
+    box-shadow: inset 0px 0px 0px #f96332;
+}
+
+.open-btn a {
+    color: #fff;
+}
+
+.open-btn:hover {
+    background-color: #f96332;
+}
+
+@keyframes checkmark {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 .single-product form button i {

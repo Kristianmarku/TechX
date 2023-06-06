@@ -74,9 +74,6 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/sales', [SaleController::class, 'index'])->name('sales'); 
         Route::post('/sales', [SaleController::class, 'create'])->name('add.sale');
         Route::delete('/sales/{id}', [SaleController::class, 'delete'])->name('delete.sale');
-
-        /* Issue Report */
-        Route::post('/report-issue', [IssueController::class, 'create'])->name('add.issue'); 
     });
 
     /* Authenticated Customers Only */
@@ -84,20 +81,26 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/c/profile', [ProfileController::class, 'customerIndex'])->name('customer.profile');
         Route::post('/c/profile', [ProfileController::class, 'update'])->name('update.profile');
         Route::get('/my-orders', [OrderController::class, 'index'])->name('myorders'); 
+        Route::get('/my-order/{id}', [OrderController::class, 'viewOrder'])->name('view.order'); 
+        Route::delete('/my-order/delete/{id}', [OrderController::class, 'delete'])->name('delete.order');
     });
 
     /* Support & Admin */
     Route::middleware(['support.view'])->group(function(){
         /* Issues */
         Route::get('/issues', [IssueController::class, 'index'])->name('issues'); 
-        // Route::get('/issues/view/{id}', [ViewIssue::class, 'mount'])->name('view.issue'); 
         Route::get('/issues/view/{id}', [IssueController::class, 'viewIssuePage'])->name('view.issue'); 
         Route::delete('/issues/view/delete/{id}', [IssueController::class, 'deleteReply'])->name('delete.reply'); 
     });
 
+    /* Issue Report */
+    Route::post('/report-issue', [IssueController::class, 'create'])->name('add.issue'); 
+
+    /* Profile */
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile'); 
     Route::post('/profile/update/password', [ProfileController::class, 'updatePassword'])->name('update.password'); 
     Route::post('/profile', [ProfileController::class, 'update'])->name('update.staff.profile');
+    
 });
 
 /* Customers */

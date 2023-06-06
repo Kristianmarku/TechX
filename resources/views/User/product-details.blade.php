@@ -34,10 +34,7 @@
           </span>
 
           <p>{{ $product->description }}</p>
-          <form action="#">
-            <input type="number" class="form-control" aria-describedby="quantity" placeholder="1">
-            <button type="submit"><i class="fa fa-shopping-bag"></i> ADD TO CART</button>
-          </form>
+            @livewire('user.add-to-cart', ['productId' => $product->id])
           <ul>
             {{-- <li><span>Game ID:</span> COD MMII</li> --}}
             <li><span>Category:</span> <a href="#">{{ $product->category->name }}</a></li>

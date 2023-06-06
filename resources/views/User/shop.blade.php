@@ -31,7 +31,7 @@
       </ul>
       <div class="row trending-box">
         @forelse($products as $pro)
-          <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 adv">
+          <div class="col-lg-3 align-self-center mb-30 trending-items">
             <div class="item">
               <div class="thumb">
                 <a href="{{ route('product.details', $pro->id) }}"><img src="{{ asset('storage/cover_images/'. $pro->cover_image ) }}" alt="Product Image"></a>

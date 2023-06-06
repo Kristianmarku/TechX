@@ -42,13 +42,20 @@
               <div class="col-lg-12">
                 <p>Having issues? Our support team will help you. Contact us!</p>
                 <br>
-                <form>
+                <form action="{{ route('add.issue') }}" method="POST">
+                  @csrf 
                   <div class="row">
                     <div class="col-lg-12">
-                        <input type="text" name="title" placeholder="Title" autocomplete="on" required>
+                        <input name="title" type="text" placeholder="Title" autocomplete="on" required>
+                        @error('title')
+                          <p class="text-danger p-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="col-lg-12">
-                        <textarea name="message" id="message" placeholder="Your Message"></textarea>
+                        <textarea name="description" placeholder="Your Message" required></textarea>
+                        @error('description')
+                          <p class="text-danger p-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="col-lg-12">
                         <button type="submit" class="orange-button">Send Message Now</button>

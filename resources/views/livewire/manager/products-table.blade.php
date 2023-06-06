@@ -22,7 +22,7 @@
                     <tr>
                         <td id="thumbnail-image-{{ $pro->id }}"><img src="{{ asset('storage/cover_images/' . $pro->cover_image) }}" width="50" alt="Product Image"></td>
                         <td>{{ $pro->name }}</td>
-                        <td>{{ $pro->description }}</td>
+                        <td class="w-50">{{ $pro->description }}</td>
                         <td>{{ $pro->quantity }}</td>
                         <td>{{ $pro->category->name }}</td>
                         <td>{{ $pro->price }}€</td>

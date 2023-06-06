@@ -31,9 +31,9 @@
                 <div class="card-body">
                   <form action="{{ route('add.category') }}" method="POST">
                     @csrf
-                    <div class="row mb-2">
+                    <div class="row mb-4">
                       <div class="col-md-4">
-                        <label for="name">Name</label>
+                        <label for="name">Name <span class="text-danger font-weight-bold">*</span></label>
                         <input name="name" type="text" class="form-control" placeholder="Category name" value="{{ old('name') }}"/>
                         @error('name')
                           <p class="text-danger p-2">{{ $message }}</p>
@@ -42,7 +42,7 @@
                     </div>
                     <div class="row">
                       <div class="col-md-4">
-                        <label for="description">Description</label>
+                        <label for="description">Description <span class="text-danger font-weight-bold">*</span></label>
                         <textarea name="description" class="form-control" cols="30" rows="10" placeholder="Category description..." value="{{ old('description') }}"></textarea>
                         @error('description')
                           <p class="text-danger p-2">{{ $message }}</p>

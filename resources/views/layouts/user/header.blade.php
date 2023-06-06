@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{{ asset('css/dropdown.scss') }}">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 
+    @livewireStyles
   </head>
 <body>
 
@@ -128,36 +129,6 @@
   <!-- ***** Header Area End ***** -->
 
 <!-- ***** Cart ***** -->
-
 <div class="cart-a">
-  <div class="container-1-a">
-    <div class="cart-title-a">Shopping Cart</div>
-    <i id="close-cart-a" class="fa-solid fa-x"></i>
-  </div>
-
-      <!-- ***** ITEMS ***** -->
-
-    <div class="item-a">
-      <div class="image-a">
-        <img src="{{ asset('images/trending-03.jpg') }}" alt="">
-      </div>
-      
-      <div class="text-a">
-        <h4>PUBG</h4>
-        <h4>1x 49.99$</h4>
-      </div>
-      <i class="fa-regular fa-circle-xmark"></i>
-    </div>
-
-      <!-- ***** ITEMS END ***** -->
-
-  <div class="bottom-buttons-a">
-    <div class="subtotal-a">
-      <h4>Total</h4>
-      <h4>$49.99</h4>
-    </div>
-    
-    <button type="submit">VIEW CART</button>
-    <button type="submit">CHECKOUT</button>
-  </div>
+  @livewire('user.cart')
 </div>
