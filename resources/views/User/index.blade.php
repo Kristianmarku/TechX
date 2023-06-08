@@ -10,19 +10,25 @@
             <h6>Welcome to TechX</h6>
             <h2>POWER UP YOUR GAMING!</h2>
             <p>Get the Edge You Need with Our Top-of-the-Line Gaming & Tech Products.</p>
-            <div class="search-input">
+            {{-- <div class="search-input">
               <form id="search" action="#">
                 <input type="text" placeholder="Type Something" id='searchText' name="searchKeyword" onkeypress="handle" />
                 <button role="button">Search Now</button>
               </form>
-            </div>
+            </div> --}}
           </div>
         </div>
         <div class="col-lg-4 offset-lg-2">
           <div class="right-image">
-            <img src="{{ asset('images/banner-image.jpg') }}" alt="">
-            <span class="price">$22</span>
-            <span class="offer">-40%</span>
+            @if($latestOnSaleProduct)
+            <a href="{{ route('product.details', $latestOnSaleProduct->id) }}">
+              <img src="{{ asset('storage/cover_images/' . $latestOnSaleProduct->cover_image) }}" alt="Product Image">
+              <span class="price {{ $latestOnSaleProduct->productSale?->sale_price ? 'line-through' : '' }}">{{ $latestOnSaleProduct->price }}€</span>
+              @if($latestOnSaleProduct && ($latestOnSaleProduct->productSale && now()->between($latestOnSaleProduct->productSale->start_date, $latestOnSaleProduct->productSale->end_date)))
+              <span class="offer">{{ $latestOnSaleProduct->productSale->sale_price }}€</span>
+              @endif
+            </a>
+            @endif 
           </div>
         </div>
       </div>
@@ -38,7 +44,7 @@
               <div class="image">
                 <img src="{{ asset('images/featured-01.png') }}" alt="" style="max-width: 44px;">
               </div>
-              <h4>Free Storage</h4>
+              <h4>Wide Range of Products</h4>
             </div>
           </a>
         </div>
@@ -48,7 +54,7 @@
               <div class="image">
                 <img src="{{ asset('images/featured-02.png') }}" alt="" style="max-width: 44px;">
               </div>
-              <h4>User More</h4>
+              <h4>Enhanced User Experience</h4>
             </div>
           </a>
         </div>
@@ -58,7 +64,7 @@
               <div class="image">
                 <img src="{{ asset('images/featured-03.png') }}" alt="" style="max-width: 44px;">
               </div>
-              <h4>Reply Ready</h4>
+              <h4>Quick and Efficient Support</h4>
             </div>
           </a>
         </div>
@@ -68,7 +74,7 @@
               <div class="image">
                 <img src="{{ asset('images/featured-04.png') }}" alt="" style="max-width: 44px;">
               </div>
-              <h4>Easy Layout</h4>
+              <h4>Sleek and Intuitive Design</h4>
             </div>
           </a>
         </div>
@@ -90,63 +96,38 @@
             <a href="{{route('shop')}}">View All</a>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6">
+        @forelse($trendingGames as $pro)
+        <div class="col-lg-3 align-self-center mb-30 trending-items">
           <div class="item">
             <div class="thumb">
-              <a href="#"><img src="{{ asset('images/trending-01.jpg') }}" alt=""></a>
-              <span class="price"><em>$28</em>$20</span>
+              <a href="{{ route('product.details', $pro->id) }}"><img src="{{ asset('storage/cover_images/'. $pro->cover_image ) }}" alt="Product Image"></a>
+              <div class="outOfStock" style="display: {{ $pro->quantity == 0 ? 'block' : 'none' }}"><i class="fa-solid fa-face-frown"></i> Out of Stock</div>
+              <span class="price">
+                @if ($pro->productSale && now()->between($pro->productSale->start_date, $pro->productSale->end_date))
+                  <em>{{ $pro->price ?? '-' }}</em>
+                  {{ $pro->productSale->sale_price }}€
+                @else
+                  {{ $pro->price }}€
+                @endif
+              </span>
             </div>
             <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Warframe</h4>
+              <span class="category">{{ $pro->category->name }}</span>
+              <h4>{{ $pro->name }}</h4>
               <a href="#"><i class="fa fa-shopping-bag"></i></a>
             </div>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6">
-          <div class="item">
-            <div class="thumb">
-              <a href="#"><img src="{{ asset('images/trending-02.jpg') }}" alt=""></a>
-              <span class="price">$44</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Tower of Fantasy</h4>
-              <a href="#"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
+        @empty
+        <div class="card">
+          <p class="text-danger">No products available</p>
         </div>
-        <div class="col-lg-3 col-md-6">
-          <div class="item">
-            <div class="thumb">
-              <a href="#"><img src="{{ asset('images/trending-03.jpg') }}" alt=""></a>
-              <span class="price"><em>$64</em>$44</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Super People</h4>
-              <a href="#"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <div class="item">
-            <div class="thumb">
-              <a href="#"><img src="{{ asset('images/trending-04.jpg') }}" alt=""></a>
-              <span class="price">$32</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Quantum Fury</h4>
-              <a href="#"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
+        @endforelse  
       </div>
     </div>
   </div>
 
-  <div class="section most-played">
+  <div class="section trending most-played">
     <div class="container">
       <div class="row">
         <div class="col-lg-6">
@@ -160,78 +141,33 @@
             <a href="{{route('shop')}}">View All</a>
           </div>
         </div>
-        <div class="col-lg-2 col-md-6 col-sm-6">
+        @forelse($trendingGames as $pro)
+        <div class="col-lg-3 align-self-center mb-30 trending-items">
           <div class="item">
             <div class="thumb">
-              <a href="#"><img src="{{ asset('images/top-game-01.jpg') }}" alt=""></a>
+              <a href="{{ route('product.details', $pro->id) }}"><img src="{{ asset('storage/cover_images/'. $pro->cover_image ) }}" alt="Product Image"></a>
+              <div class="outOfStock" style="display: {{ $pro->quantity == 0 ? 'block' : 'none' }}"><i class="fa-solid fa-face-frown"></i> Out of Stock</div>
+              <span class="price">
+                @if ($pro->productSale && now()->between($pro->productSale->start_date, $pro->productSale->end_date))
+                  <em>{{ $pro->price ?? '-' }}</em>
+                  {{ $pro->productSale->sale_price }}€
+                @else
+                  {{ $pro->price }}€
+                @endif
+              </span>
             </div>
             <div class="down-content">
-                <span class="category">Adventure</span>
-                <h4>Warframe</h4>
-                <a href="#">Explore</a>
+              <span class="category">{{ $pro->category->name }}</span>
+              <h4>{{ $pro->name }}</h4>
+              <a href="#"><i class="fa fa-shopping-bag"></i></a>
             </div>
           </div>
         </div>
-        <div class="col-lg-2 col-md-6 col-sm-6">
-          <div class="item">
-            <div class="thumb">
-              <a href="#"><img src="{{ asset('images/top-game-02.jpg') }}" alt=""></a>
-            </div>
-            <div class="down-content">
-                <span class="category">Adventure</span>
-                <h4>PUBG</h4>
-                <a href="#">Explore</a>
-            </div>
-          </div>
+        @empty
+        <div class="card">
+          <p class="text-danger">No products available</p>
         </div>
-        <div class="col-lg-2 col-md-6 col-sm-6">
-          <div class="item">
-            <div class="thumb">
-              <a href="#"><img src="{{ asset('images/top-game-03.jpg') }}" alt=""></a>
-            </div>
-            <div class="down-content">
-                <span class="category">Adventure</span>
-                <h4>Apex Legends</h4>
-                <a href="#">Explore</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-6 col-sm-6">
-          <div class="item">
-            <div class="thumb">
-              <a href="#"><img src="{{ asset('images/top-game-04.jpg') }}" alt=""></a>
-            </div>
-            <div class="down-content">
-                <span class="category">Adventure</span>
-                <h4>The Sims 4</h4>
-                <a href="#">Explore</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-6 col-sm-6">
-          <div class="item">
-            <div class="thumb">
-              <a href="#"><img src="{{ asset('images/top-game-05.jpg') }}" alt=""></a>
-            </div>
-            <div class="down-content">
-                <span class="category">Adventure</span>
-                <h4>Lostark</h4>
-                <a href="#">Explore</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-6 col-sm-6">
-          <div class="item">
-            <div class="thumb">
-              <a href="#"><img src="{{ asset('images/top-game-06.jpg') }}" alt=""></a>
-            </div>
-            <div class="down-content">
-                <span class="category">Adventure</span>
-                <h4>Destiny 2</h4>
-                <a href="#">Explore</a>
-            </div>
-          </div>
-        </div>
+        @endforelse  
       </div>
     </div>
   </div>
@@ -245,46 +181,17 @@
             <h2>Top Categories</h2>
           </div>
         </div>
-        <div class="col-lg col-sm-6 col-xs-12">
-          <div class="item">
-            <h4>Action</h4>
-            <div class="thumb">
-              <a href="#"><img src="{{ asset('images/categories-01.jpg') }}" alt=""></a>
-            </div>
+        @forelse($topCategories as $cat)
+          <div class="col-lg col-sm-6 col-xs-12">
+              <div class="item">
+                <h4>{{ $cat->name }}</h4>
+              </div>
           </div>
-        </div>
-        <div class="col-lg col-sm-6 col-xs-12">
-          <div class="item">
-            <h4>Adventure</h4>
-            <div class="thumb">
-              <a href="#"><img src="{{ asset('images/categories-05.jpg') }}" alt=""></a>
-            </div>
+        @empty
+          <div class="card">
+            <p class="text-danger">No categories available</p>
           </div>
-        </div>
-        <div class="col-lg col-sm-6 col-xs-12">
-          <div class="item">
-            <h4>Sports</h4>
-            <div class="thumb">
-              <a href="#"><img src="{{ asset('images/categories-03.jpg') }}" alt=""></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg col-sm-6 col-xs-12">
-          <div class="item">
-            <h4>Strategy</h4>
-            <div class="thumb">
-              <a href="#"><img src="{{ asset('images/categories-04.jpg') }}" alt=""></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg col-sm-6 col-xs-12">
-          <div class="item">
-            <h4>Simulation</h4>
-            <div class="thumb">
-              <a href="#"><img src="{{ asset('images/categories-05.jpg') }}" alt=""></a>
-            </div>
-          </div>
-        </div>
+        @endforelse
       </div>
     </div>
   </div>
@@ -314,12 +221,12 @@
               <div class="col-lg-12">
                 <div class="section-heading">
                   <h6>NEWSLETTER</h6>
-                  <h2>Get Up To $100 Off Just Buy <em>Subscribe</em> Newsletter!</h2>
+                  <h2>Get Up To $100 Off Just By <em>Subscribing</em> our Newsletter!</h2>
                 </div>
                 <div class="search-input">
-                  <form id="subscribe" action="#">
+                  <form>
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your email...">
-                    <button type="submit">Subscribe Now</button>
+                    <button>Subscribe Now</button>
                   </form>
                 </div>
               </div>
@@ -329,5 +236,4 @@
       </div>
     </div>
   </div>
-
 @endsection

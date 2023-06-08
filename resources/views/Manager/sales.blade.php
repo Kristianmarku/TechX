@@ -4,7 +4,7 @@
 @section('content')
         <div class="panel-header panel-header-lg">
           <div class="row ml-3 d-flex flex-wrap">
-            <div class="col-md-2">
+            <div class="col-md-3">
               <a href="">
                 <div class="card">
                   <div class="card-header text-center">

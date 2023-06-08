@@ -4,6 +4,8 @@ namespace App\Http\Livewire\Support;
 
 use App\Models\Issue;
 use App\Models\IssueReply;
+use App\Models\User;
+use App\Notifications\OrderNotification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Livewire\Component;
@@ -37,6 +39,11 @@ class ViewIssue extends Component
         $this->issue->status = $this->status;
         $this->issue->save();
         toastr()->success('Status updated');
+
+        $user = User::findOrFail($this->issue->user_id);
+
+        $message = 'Ticket (#'.$this->issue->id.') updated to '. $this->status;
+        $user->notify(new OrderNotification($message));
     }
 
     // Handle Submitting a comment *issue reply*

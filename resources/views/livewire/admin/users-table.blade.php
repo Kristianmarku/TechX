@@ -53,8 +53,12 @@
                         <td>{{ $user->role->name }}</td>
                         <td>{{ $user->created_at->format('d.m.Y - h:i:s') }}</td>
                         <td>
-                            <a href="{{ route('edit.user', $user->id) }}" class="btn btn-primary">Edit</a>
-                            <button onclick="confirmDelete({{ $user->id }})" class="btn btn-danger">Delete</button>
+                            <a href="{{ route('edit.user', $user->id) }}" class="btn bg-dark">
+                              <i class="fa-solid fa-pen"></i>
+                            </a>
+                            <button onclick="confirmDelete({{ $user->id }})" class="btn btn-danger">
+                              <i class="fa-solid fa-trash"></i>
+                            </button>
                             <form id="deleteForm_{{ $user->id }}" action="{{ route('delete.user', $user->id) }}" method="POST" style="display: none;">
                               @csrf
                               @method('DELETE')

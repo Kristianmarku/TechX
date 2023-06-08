@@ -25,12 +25,8 @@
     @if(Session::has('toastr'))
       {!! Session::get('toastr') !!}
     @endif
-
-    <div class="notification">
-      <span class="message"></span>
-    </div>
-
     <div class="wrapper">
+
       <div class="sidebar" data-color="orange">
         <div class="logo">
           <a href="#" class="simple-text logo-mini"><img src="{{ asset('images/techxLogoWhite.svg') }}" alt="logo"></a>
@@ -50,6 +46,13 @@
                 <a href="{{ route('issues') }}">
                   <i class="now-ui-icons tech_headphones"></i>
                   <p>Issues</p>
+                </a>
+              </li>
+
+              <li class="{{ request()->is('orders*') ? 'active' : '' }}">
+                <a href="{{ route('orders') }}">
+                  <i class="fa-solid fa-truck-fast"></i>
+                  <p>Orders</p>
                 </a>
               </li>
             @endif 
@@ -76,19 +79,19 @@
               </a>
             </li>
 
-
-            <li class="active-pro">
-              <a data-toggle="modal" data-target="#issueModal">
-                <i class="now-ui-icons tech_headphones"></i>
-                <p>Contact Support</p>
-              </a>
-            </li>
+                @if(!Auth::user()->hasRole('Admin'))
+                  <li class="active-pro">
+                    <a data-toggle="modal" data-target="#issueModal">
+                      <i class="now-ui-icons tech_headphones"></i>
+                      <p>Contact Support</p>
+                    </a>
+                  </li>
+                @endif 
             @endif 
-
           </ul>
         </div>
       </div>
-      <div class="main-panel" id="main-panel">
+    <div class="main-panel" id="main-panel">
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-transparent bg-primary navbar-absolute">

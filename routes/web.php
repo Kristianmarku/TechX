@@ -91,6 +91,10 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/issues', [IssueController::class, 'index'])->name('issues'); 
         Route::get('/issues/view/{id}', [IssueController::class, 'viewIssuePage'])->name('view.issue'); 
         Route::delete('/issues/view/delete/{id}', [IssueController::class, 'deleteReply'])->name('delete.reply'); 
+
+        /* Orders */
+        Route::get('/orders', [OrderController::class, 'showAllOrders'])->name('orders'); 
+        Route::delete('/orders/{id}', [OrderController::class, 'adminDelete'])->name('admin.delete.order');
     });
 
     /* Issue Report */

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Database\Factories\ProductFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -32,5 +33,10 @@ class Product extends Model
     public function productSale()
     {
         return $this->hasOne(ProductSale::class);
+    }
+
+    protected static function newFactory()
+    {
+        return ProductFactory::new();
     }
 }

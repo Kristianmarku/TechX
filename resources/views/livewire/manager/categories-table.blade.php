@@ -17,8 +17,9 @@
                     <td>{{ $cat->name }}</td>
                     <td>{{ $cat->description }}</td>
                     <td>
-                        {{-- <button class="btn btn-warning">Edit</button> --}}
-                        <button onclick="confirmDelete({{ $cat->id }})" class="btn btn-danger">Delete</button>
+                        <button onclick="confirmDelete({{ $cat->id }})" class="btn btn-danger">
+                          <i class="fa-solid fa-trash"></i>
+                        </button>
                         <form id="deleteForm_{{ $cat->id }}" action="{{ route('delete.category', $cat->id) }}" method="POST" style="display: none;"> 
                           @csrf
                           @method('DELETE')

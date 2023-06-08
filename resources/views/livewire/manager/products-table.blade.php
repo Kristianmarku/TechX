@@ -9,9 +9,9 @@
           <div class="table-responsive">
             <table class="table">
               <thead class="text-primary">
+                <th>ID</th>
                 <th>Thumbnail</th>
                 <th>Product Name</th>
-                <th>Description</th>
                 <th>Quantity</th>
                 <th>Category</th>
                 <th>Price</th>
@@ -20,15 +20,19 @@
               <tbody>
                 @forelse ($products as $pro)
                     <tr>
+                        <td>{{ $pro->id }}</td>
                         <td id="thumbnail-image-{{ $pro->id }}"><img src="{{ asset('storage/cover_images/' . $pro->cover_image) }}" width="50" alt="Product Image"></td>
                         <td>{{ $pro->name }}</td>
-                        <td class="w-50">{{ $pro->description }}</td>
                         <td>{{ $pro->quantity }}</td>
                         <td>{{ $pro->category->name }}</td>
                         <td>{{ $pro->price }}€</td>
                         <td>
-                        <a href="{{ route('edit.product', $pro->id) }}" class="btn btn-warning">Edit</a>
-                        <button onclick="confirmDelete({{ $pro->id }})" type="button" class="btn btn-danger">Delete</button>
+                        <a href="{{ route('edit.product', $pro->id) }}" class="btn bg-dark">
+                          <i class="fa-solid fa-pen"></i>
+                        </a>
+                        <button onclick="confirmDelete({{ $pro->id }})" type="button" class="btn btn-danger">
+                          <i class="fa-solid fa-trash"></i>
+                        </button>
                         <form id="deleteForm_{{ $pro->id }}" action="{{ route('delete.product', $pro->id) }}" method="POST" style="display: none;">
                           @csrf
                           @method('DELETE')

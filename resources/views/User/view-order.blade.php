@@ -43,7 +43,6 @@
                         </div>
                         <div class="text-abf">
                             <h3>{{ $product->name }}</h3>
-                            <h4>Quantity: {{ $product->pivot->quantity }}</h4>
                         </div>
                         <div class="code-abf">
                             <h3>Product Code:</h3>

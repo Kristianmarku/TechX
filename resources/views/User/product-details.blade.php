@@ -7,7 +7,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <h3>{{ $product->name }}</h3>
+          <h3>{{ $product->name }} a</h3>
           <span class="breadcrumb"><a href="{{ route('home') }}">Home</a>  >  <a href="{{ route('shop') }}">Shop</a>  >  {{ $product->name }}</span>
         </div>
       </div>
@@ -20,10 +20,13 @@
         <div class="col-lg-6">
           <div class="left-image">
             <img src="{{ asset('storage/cover_images/' . $product->cover_image) }}" alt="Product Image">
+              <div class="outOfStock" style="display: {{ $product->quantity == 0 ? 'block' : 'none' }}"><i class="fa-solid fa-face-frown"></i> Out of Stock</div>
           </div>
         </div>
         <div class="col-lg-6 align-self-center">
           <h4>{{ $product->name }}</h4>
+          <small style="margin-top: 0">In stock: {{ $product->quantity }}</small>
+          <br>
           <span class="price">
             @if ($product->productSale && now()->between($product->productSale->start_date, $product->productSale->end_date))
               <em>{{ $product->price ?? '-' }}</em>

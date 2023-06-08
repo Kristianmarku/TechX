@@ -56,12 +56,6 @@
           if (result.isConfirmed) {
             // Form submission code here
             document.getElementById('deleteForm_' + id).submit();
-
-            swalWithBootstrapButtons.fire(
-              'Deleted!',
-              'User has been deleted.',
-              'success'
-            );
           } 
         });
       }

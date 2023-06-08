@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\User;
+use App\Notifications\OrderNotification;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,13 +22,13 @@ class OrderController extends Controller
         $user = Auth::user();
 
         // Retrieve orders for the authenticated user
-        $orders = Order::where('user_id', $user->id)->get();
+        $orders = Order::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
         return view('user.my-orders', compact('orders'));
     }
 
     
     /**
-     * Show the form for creating a new resource.
+     * Show the form for a specific instance.
      *
      * @return \Illuminate\Http\Response
      */
@@ -35,6 +37,18 @@ class OrderController extends Controller
         $order = Order::findOrFail($id);
         return view('user.view-order', compact('order'));
     }
+
+
+      /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showAllOrders(): Renderable
+    {
+        return view('support.orders');
+    }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -89,7 +103,29 @@ class OrderController extends Controller
      */
     public function delete($id)
     {
-        Order::findOrFail($id)->delete();
+        $order = Order::findOrFail($id)->delete();
         return to_route('myorders')->with('success', 'Order cancelled.');
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function adminDelete($id)
+    {
+        $order = Order::findOrFail($id); // Find the order
+    
+        $userId = $order->user_id; // Get the user ID associated with the order
+        $user = User::findOrFail($userId); // Find the user
+    
+        $message = 'Your order (#'.$order->id.') has been cancelled.';
+        $user->notify(new OrderNotification($message));
+    
+        $order->delete(); // Delete the order
+    
+        return redirect()->back()->with('success', 'Order cancelled.');
+    }
+    
 }

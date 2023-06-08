@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
@@ -24,24 +25,31 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index() : Renderable
+    public function index(): Renderable
     {
-        if(!Auth::user()){
-            return view('user.index');
-        }
+        $latestOnSaleProduct = Product::with('productSale')->latest()->first();
+        $trendingGames = Product::paginate(4);
+        $topCategories = Category::paginate(5);
 
-        if(Auth::user()->role_id == 1){
-            return view('admin.dashboard');
-        }elseif(Auth::user()->role_id == 2){
-            return view('manager.manager_dashboard');
-        }elseif(Auth::user()->role_id == 3){
-            return view('user.index');
-        }elseif(Auth::user()->role_id == 4){
-            return view('support.dashboard');
-        }
+        $compact = compact('latestOnSaleProduct', 'trendingGames', 'topCategories');
 
-        return view('user.index');
+        if (!Auth::user()) {
+            return view('user.index', $compact);
+        }
+    
+        switch (Auth::user()->role_id) {
+            case 1:
+                return view('admin.dashboard');
+            case 2:
+                return view('manager.manager_dashboard');
+            case 3:
+                return view('user.index', $compact);
+            case 4:
+                return view('support.dashboard');
+        }
+        return view('user.index', $compact);
     }
+    
 
     public function management() : Renderable {
         return view('manager.manager_dashboard');
@@ -59,8 +67,7 @@ class HomeController extends Controller
         return view('user.index');
     }
     public function shop() : Renderable {
-        $products = Product::all();
-        return view('user.shop', compact('products'));
+        return view('user.shop');
     }
     public function productDetails() : Renderable {
         return view('user.product-details');

@@ -3,72 +3,12 @@
 
 @section('content')
         <div class="panel-header panel-header-lg">
-          <div class="row ml-3 d-flex flex-wrap">
-            <div class="col-md-3">
-              <a href="#">
-                <div class="card">
-                  <div class="card-header text-center">
-                    <h3 class="title">Today's Sales</h3>
-                  </div>
-                  <div class="card-body">
-                    <div class="d-flex justify-content-center align-items-center">
-                      <h1>33</h1>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div class="col-md-3">
-              <a href="#">
-                <div class="card">
-                  <div class="card-header text-center">
-                    <h3 class="title">Total Sales</h3>
-                  </div>
-                  <div class="card-body">
-                    <div class="d-flex justify-content-center align-items-center">
-                      <h1>233</h1>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
+          @livewire('manager.counters')
         </div>
         <div class="content">
           <div class="row">
             <div class="col-lg-12">
-              <div class="card">
-                <div class="card-header">
-                  <h5 class="card-category">Orders</h5>
-                  <h4 class="card-title">Latest Orders</h4>
-                </div>
-                <div class="card-body">
-                  <div class="table-responsive">
-                    <table class="table">
-                      <thead class="text-primary">
-                        <th>Firstname</th>
-                        <th>Lastname</th>
-                        <th>Date</th>
-                        <th>Total</th>
-                        <th>Status</th>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>Kristian</td>
-                          <td>Marku</td>
-                          <td>19.4.2023</td>
-                          <td>$150</td>
-                          <td>
-                            <p class="badge badge-warning">Pending</p>
-                          </td>
-                          <!-- Status: Pending, Confirmed, Declined, Cancelled, Completed -->
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
+              @livewire('manager.revenue-counters')
             </div>
           </div>
         </div>
@@ -140,3 +80,7 @@
       </div>
 @endsection
 @include('manager.modals.issue-modal')
+
+@push('scripts')
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+@endpush

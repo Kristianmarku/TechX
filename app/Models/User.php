@@ -62,6 +62,11 @@ class User extends Authenticatable
         return $this->hasOne(UserAddress::class);
     }
 
+    public function issues()
+    {
+        return $this->hasMany(Issue::class);
+    }
+
     public function issueReplies()
     {
         return $this->hasMany(IssueReply::class, 'support_id');

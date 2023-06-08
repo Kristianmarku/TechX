@@ -9,7 +9,7 @@ class ProductsTable extends Component
 {
     public function render()
     {
-        $products = Product::all();
+        $products = Product::orderBy('created_at', 'desc')->get();
         return view('livewire.manager.products-table', compact('products'));
     }
 }

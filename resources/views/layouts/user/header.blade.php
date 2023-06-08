@@ -22,16 +22,12 @@
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
     <link rel="stylesheet" href="{{ asset('css/cart.css') }}">
     <link rel="stylesheet" href="{{ asset('css/dropdown.scss') }}">
+    <link rel="stylesheet" href="{{ asset('css/support-button.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 
     @livewireStyles
   </head>
 <body>
-
-  <div class="notification">
-    <span class="message"></span>
-  </div>
-  
 
   <!-- ***** Preloader Start ***** -->
   <div id="js-preloader" class="js-preloader">
@@ -45,6 +41,16 @@
     </div>
   </div>
   <!-- ***** Preloader End ***** -->
+
+  @auth
+    <!-- Support Button -->
+    <button class="button-support">
+      <i class="fa-solid fa-headset"></i>
+    </button>
+    <div class="chat-container">
+      @livewire('user.issues')
+    </div>
+  @endauth
 
   <!-- ***** Header Area Start ***** -->
   <header class="header-area header-sticky">
@@ -60,7 +66,7 @@
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                       <li><a href="{{ route('home') }}" class="{{ request()->is('home') ? 'active' : '' }}">Home</a></li>
-                      <li><a href="{{ route('shop') }}" class="{{ request()->is('shop') ? 'active' : '' }}" >Our Shop</a></li>
+                      <li><a href="{{ route('shop') }}" class="{{ request()->is('shop') ? 'active' : '' }}" >Shop</a></li>
                       <li><a href="{{ route('contact') }}" class="{{ request()->is('contact') ? 'active' : '' }}">Contact Us</a></li>
                       
                       
@@ -83,32 +89,8 @@
                       </li>
 
                       <li class="dropdown bell-a">
-                        <a href="#"><i class="fa-solid fa-bell"></i></a>
-                        <div class="dropdown-content-a">
-                            <div class="content-a">
-                              <img src="{{ asset('images/single-game.jpg') }}" src="err"></img>
-                              <div class="px-2">
-                                <h4>COD</h4> <h5> lorem text lorem the lorem pensul ! </h5>
-                              </div>
-                              <i class="fa-regular fa-eye-slash"></i>
-                            </div>
-                            <div class="content-a">
-                              <img src="{{ asset('images/trending-04.jpg') }}" src="err"></img>
-                              <div class="px-2">
-                                <h4>COD</h4> <h5> lorem text lorem the lorem pensul ! </h5>
-                              </div>
-                              <i class="fa-regular fa-eye-slash"></i>
-                            </div>
-                            <div class="content-a">
-                              <img src="{{ asset('images/trending-01.jpg') }}" src="err"></img>
-                              <div class="px-2">
-                                <h4>COD</h4> <h5> lorem text lorem the lorem pensul ! </h5>
-                              </div>
-                              <i class="fa-regular fa-eye-slash"></i>
-                            </div>
-                        </div>
-                        <span class="notification-dot"></span>
-                    </li>
+                        @livewire('user.notifications')
+                      </li>
                     
                       <li><a id="cart-icon-a"><i class="fa-solid fa-cart-shopping"></i></a></li>
                       @endauth                      

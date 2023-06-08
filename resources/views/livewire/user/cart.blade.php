@@ -1,8 +1,8 @@
 <div class="content">
     <div class="top-content">
         <div class="container-1-a">
+            <i id="close-cart-a" class="fa-solid fa-arrow-right-from-bracket"></i>
             <div class="cart-title-a">Shopping Cart</div>
-            <i id="close-cart-a" class="fa-solid fa-x"></i>
         </div>
     
         <!-- ***** ITEMS ***** -->

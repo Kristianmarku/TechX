@@ -59,7 +59,7 @@
                           </div>
 
                           <div class="col-md-4">
-                            <label class="btn btn-info text-light" for="cover_image">Upload Image</label>
+                            <label class="btn bg-dark text-light" for="cover_image">Upload Image</label>
                             <p id="file_name"></p> 
                             <input name="cover_image" id="cover_image" type="file" class="form-control border-0" style="display: none"/>
                             @error('cover_image')

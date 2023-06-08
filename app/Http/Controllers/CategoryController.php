@@ -94,7 +94,18 @@ class CategoryController extends Controller
      */
     public function delete($id)
     {
-        Category::findOrFail($id)->delete();
-        return redirect()->back()->with('message', 'Category deleted.');
+        try {
+            $category = Category::findOrFail($id);
+            $category->delete();
+            return redirect()->back()->with('message', 'Category deleted.');
+        } catch (\Illuminate\Database\QueryException $exception) {
+            $errorCode = $exception->errorInfo[1];
+            if ($errorCode == 1451) {
+                // Foreign key constraint violation, category has associated products
+                return redirect()->back()->with('error', 'Cannot delete the category. It has associated products.');
+            }
+            // Other database query exception
+            return redirect()->back()->with('error', 'An error occurred while deleting the category.');
+        }
     }
 }

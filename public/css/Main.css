@@ -786,21 +786,24 @@ Banner Style
     padding: 4px 15px;
 }
 
+.main-banner .right-image span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .main-banner .right-image span.offer {
     position: absolute;
     left: -25px;
     bottom: -25px;
-    border-radius: 50%;
+    border-radius: 10px;
     background-color: #121212;
     font-size: 28px;
     text-transform: uppercase;
     font-weight: 700;
     color: #fff;
-    display: inline-block;
-    width: 100px;
-    height: 100px;
-    text-align: center;
-    line-height: 100px;
+    width: 150px;
+    height: 50px;
 }
 
 /* 
@@ -901,6 +904,7 @@ Trending Style
 }
 
 .trending .item .down-content h4 {
+    width: 11em;
     font-size: 17px;
     font-weight: 600;
     transition: all 0.3s;
@@ -940,70 +944,6 @@ Most Played Style
     padding: 100px 0px;
     border-radius: 150px;
 }
-
-.most-played .main-button {
-    margin-top: 32px;
-    text-align: right;
-}
-
-.most-played .item {
-    background-color: #fff;
-    position: relative;
-    border-radius: 25px;
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.most-played .item .thumb {
-    position: relative;
-    border-radius: 25px;
-    overflow: hidden;
-}
-
-.most-played .item .down-content {
-    padding: 20px 15px 40px 15px;
-}
-
-.most-played .item .down-content span.category {
-    font-size: 14px;
-    color: #7a7a7a;
-    margin-bottom: 5px;
-    display: inline-block;
-}
-
-.most-played .item .down-content h4 {
-    font-size: 17px;
-    font-weight: 600;
-    transition: all 0.3s;
-}
-
-.most-played .item .down-content a {
-    position: absolute;
-    display: inline-block;
-    text-align: center;
-    line-height: 40px;
-    height: 40px;
-    padding: 0px 15px;
-    background-color: #121212;
-    color: #fff;
-    border-radius: 20px;
-    font-size: 15px;
-    text-transform: uppercase;
-    font-weight: 600;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -20px;
-    transition: all 0.3s;
-}
-
-.most-played .item:hover .down-content h4 {
-    color: #f96332;
-}
-
-.most-played .item:hover .down-content a {
-    background-color: #f96332;
-}
-
 /* 
 ---------------------------------------------
 Categories Style
@@ -1253,6 +1193,11 @@ Shop Page Style
     margin-bottom: 30px;
 }
 
+.trending-box .item img {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
 .trending-box .item .thumb {
     position: relative;
     border-radius: 25px;
@@ -1353,6 +1298,27 @@ Shop Page Style
     color: #fff;
 }
 
+.line-through {
+    text-decoration: line-through;
+    text-decoration-color: red;
+}
+
+.searchContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.searchBox {
+    position: relative;
+    width: 500px;
+    padding: 1rem;
+    outline: none;
+    border-radius: 20px;
+    border: none;
+    background-color: #eeeeee;
+}
+
 /* 
 ---------------------------------------------
 Single Page Style
@@ -1368,6 +1334,8 @@ Single Page Style
 
 .single-product .left-image {
     margin-right: 80px;
+    position: relative;
+    display: inline-block;
 }
 
 .single-product .left-image img {
@@ -1657,6 +1625,37 @@ Error Messages
 .error-messages p {
     color: #fff;
     padding-left: 10px;
+}
+
+/* 
+---------------------------------------------
+Issue Popup
+--------------------------------------------- 
+*/
+
+.text-light {
+    color: #fff;
+}
+
+/* 
+---------------------------------------------
+Out of Stock
+--------------------------------------------- 
+*/
+
+.outOfStock {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 0, 0, 0.8);
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    padding-top: 40%;
+    box-sizing: border-box;
 }
 
 /* 

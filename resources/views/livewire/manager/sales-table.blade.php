@@ -1,11 +1,11 @@
 <div class="card">
     <div class="card-header d-flex justify-content-between">
       <div class="d-flex">
-        <h4 class="card-title">All Products</h4>
+        <h4 class="card-title">All Products (Sale)</h4>
       </div>
       <div class="d-flex">
         <div class="input-group no-border mx-2">
-          <input type="text"  wire:model="search" class="form-control" placeholder="Search products..." />
+          <input type="text" wire:model="search" class="form-control" placeholder="Search products..." />
           <div class="input-group-append">
             <div class="input-group-text">
               <i class="now-ui-icons ui-1_zoom-bold"></i>
@@ -45,9 +45,7 @@
           <thead class="text-primary">
             <th>ID</th>
             <th>Product Name</th>
-            <th>Description</th>
             <th>Quantity</th>
-            <th>Category</th>
             <th>Price</th>
             <th>Sale Price</th>
             <th>Sale Validation</th>
@@ -59,9 +57,7 @@
             <tr>
                 <td>{{ $pro->id }}</td>
                 <td>{{ $pro->name }}</td>
-                <td>{{ $pro->description }}</td>
                 <td>{{ $pro->quantity }}</td>
-                <td>{{ $pro->category->name }}</td>
                 <td>{{ $pro->price }}€</td>
                 <td>
                   @if ($pro->productSale?->sale_price)

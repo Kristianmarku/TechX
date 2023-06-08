@@ -5,6 +5,7 @@ namespace App\Http\Livewire\User;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
+use App\Notifications\OrderNotification;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -120,6 +121,25 @@ class Cart extends Component
                 'status' => 'Pending',
             ]);
 
+             // Process each product in the cart
+            foreach ($cart->products as $product) {
+                $quantity = $product->pivot->quantity;
+
+                // Check if the product is in stock
+                if ($quantity <= $product->quantity) {
+                    // Decrease the quantity of products in the database
+                    $product->quantity -= $quantity;
+                    $product->save();
+
+                    // Associate the cart products with the order
+                    $order->products()->attach($product, ['quantity' => $quantity]);
+                } else {
+                    // Product is out of stock
+                    toastr()->error('Product "' . '#' . $product->id . ' ' . $product->name . '" is out of stock.');
+                    return;
+                }
+            }
+
             // Associate the cart products with the order
             foreach ($cart->products as $product) {
                 $quantity = $product->pivot->quantity;
@@ -131,9 +151,15 @@ class Cart extends Component
 
             // Emit an event to update the cart
             $this->emit('cartUpdated');
+            $this->emit('refreshComponent');
 
             // Show a success message
             toastr()->success('Order placed successfully.');
+
+            // Send the notification to the user
+            $message = 'Your order (#'.$order->id.') has been placed successfully.';
+            $user->notify(new OrderNotification($message));
+
         } else {
             toastr()->error('No cart found.');
         }
