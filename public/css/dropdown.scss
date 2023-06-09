@@ -69,6 +69,26 @@
     overflow-y: auto;
 }
 
+@media only screen and (max-width: 1380px) {
+    .dropdown-content-a {
+        width: 90vw;
+        height: min-content;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 9999;
+        background-color: #b8b8b8;
+    }
+
+    .dropdown-content {
+        width: 90vw;
+        height: min-content;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 9999;
+        background-color: #b1b1b1;
+    }
+}
+
 .dropdown-content-a::before {
     content: "";
     position: absolute;
