@@ -95,7 +95,7 @@
         
     @else
         <div wire:loading.remove>
-            No current issues.
+            <p class="text-light">You haven't sent any messages.</p>
         </div>
     @endif
     <div wire:loading>

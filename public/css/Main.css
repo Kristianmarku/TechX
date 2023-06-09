@@ -1193,7 +1193,8 @@ Shop Page Style
     margin-bottom: 30px;
 }
 
-.trending-box .item img {
+.trending-box .item img,
+.trending img {
     aspect-ratio: 1/1;
     object-fit: cover;
 }

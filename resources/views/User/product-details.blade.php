@@ -7,7 +7,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <h3>{{ $product->name }} a</h3>
+          <h3>{{ $product->name }}</h3>
           <span class="breadcrumb"><a href="{{ route('home') }}">Home</a>  >  <a href="{{ route('shop') }}">Shop</a>  >  {{ $product->name }}</span>
         </div>
       </div>
@@ -63,7 +63,7 @@
                     <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="true">Description</button>
                   </li>
                   <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button" role="tab" aria-controls="reviews" aria-selected="false">Reviews (3)</button>
+                    <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button" role="tab" aria-controls="reviews" aria-selected="false">Reviews</button>
                   </li>
                 </ul>
               </div>              

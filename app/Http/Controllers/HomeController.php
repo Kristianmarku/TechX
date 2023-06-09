@@ -27,7 +27,7 @@ class HomeController extends Controller
      */
     public function index(): Renderable
     {
-        $latestOnSaleProduct = Product::with('productSale')->latest()->first();
+        $latestOnSaleProduct = Product::latest()->first();
         $trendingGames = Product::paginate(4);
         $topCategories = Category::paginate(5);
 
