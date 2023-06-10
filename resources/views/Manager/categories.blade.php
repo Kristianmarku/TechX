@@ -20,7 +20,11 @@
         </div>
         <div class="content">
           <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-9">
+              @livewire('manager.categories-table')
+            </div>
+
+            <div class="col-lg-3">
               <div class="card">
                 <div class="card-header">
                   <h5 class="card-category">Add Categories</h5>
@@ -30,7 +34,7 @@
                   <form action="{{ route('add.category') }}" method="POST">
                     @csrf
                     <div class="row mb-4">
-                      <div class="col-md-4">
+                      <div class="col-md-12">
                         <label for="name">Name <span class="text-danger font-weight-bold">*</span></label>
                         <input name="name" type="text" class="form-control" placeholder="Category name" value="{{ old('name') }}"/>
                         @error('name')
@@ -39,7 +43,7 @@
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-md-4">
+                      <div class="col-md-12">
                         <label for="description">Description <span class="text-danger font-weight-bold">*</span></label>
                         <textarea name="description" class="form-control" cols="30" rows="10" placeholder="Category description..." value="{{ old('description') }}"></textarea>
                         @error('description')
@@ -55,12 +59,6 @@
                   </form>
                 </div>
               </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-lg-12">
-              @livewire('manager.categories-table')
             </div>
           </div>
         </div>

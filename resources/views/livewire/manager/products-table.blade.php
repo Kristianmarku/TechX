@@ -1,10 +1,37 @@
 <div class="row">
     <div class="col-lg-12">
       <div class="card">
-        <div class="card-header">
-          <h5 class="card-category">Products</h5>
-          <h4 class="card-title">All Products</h4>
+        <div class="card-header d-flex justify-content-between">
+          <div class="d-flex">
+            <h4 class="card-title">Products</h4>
+          </div>
+          <div class="d-flex col-md-6">
+            <div class="input-group no-border mx-2">
+              <input type="text" wire:model="search" class="form-control" placeholder="Search products..." />
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <i class="now-ui-icons ui-1_zoom-bold"></i>
+                </div>
+              </div>
+            </div>
+    
+            <div class="input-group no-border mx-2 col-md-4">
+              <select wire:model="filterCategory" class="form-control">
+                <option value="0">All</option>
+                @forelse ($categories as $cat)
+                <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                @empty
+                No data available                
+                @endforelse
+              </select>
+              <div class="input-group-append">
+                <div class="input-group-text"></div>
+              </div>
+            </div>
+    
+          </div>
         </div>
+
         <div class="card-body">
           <div class="table-responsive">
             <table class="table">
